@@ -1,6 +1,6 @@
 "use client";
 
-import { Sparkles, Calendar } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 interface FloatingConciergeLauncherProps {
   onOpen: () => void;

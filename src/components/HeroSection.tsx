@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { ArrowUpRight, Sparkles, MapPin, Clock } from "lucide-react";
-import { SALON_INFO } from "@/data/salon-data";
 
 interface HeroSectionProps {
   onOpenBooking: () => void;

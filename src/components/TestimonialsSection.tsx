@@ -1,7 +1,7 @@
 "use client";
 
 import { TESTIMONIALS } from "@/data/salon-data";
-import { Sparkles, Quote } from "lucide-react";
+import { Quote } from "lucide-react";
 
 export default function TestimonialsSection() {
   return (

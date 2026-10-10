@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { SPECIALISTS } from "@/data/salon-data";
 
 interface SpecialistsSectionProps {

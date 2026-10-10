@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { X, ShieldCheck, Calendar, FileText, Sparkles } from "lucide-react";
+import { X, ShieldCheck, Calendar, FileText } from "lucide-react";
 
 export type PolicyTab = "booking" | "cancellation" | "privacy" | "sanitary";
 
@@ -13,10 +13,15 @@ interface PoliciesModalProps {
 
 export default function PoliciesModal({ initialTab = "booking", isOpen, onClose }: PoliciesModalProps) {
   const [activeTab, setActiveTab] = useState<PolicyTab>(initialTab);
+  const [prevInitialTab, setPrevInitialTab] = useState<PolicyTab>(initialTab);
+
+  if (prevInitialTab !== initialTab) {
+    setPrevInitialTab(initialTab);
+    setActiveTab(initialTab);
+  }
 
   useEffect(() => {
     if (isOpen) {
-      setActiveTab(initialTab);
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
@@ -24,7 +29,7 @@ export default function PoliciesModal({ initialTab = "booking", isOpen, onClose 
     return () => {
       document.body.style.overflow = "";
     };
-  }, [isOpen, initialTab]);
+  }, [isOpen]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {

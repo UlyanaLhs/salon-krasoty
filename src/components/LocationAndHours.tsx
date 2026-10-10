@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { SALON_INFO } from "@/data/salon-data";
-import { MapPin, Clock, Phone, Mail, ArrowUpRight, ChevronDown, CheckCircle2 } from "lucide-react";
+import { MapPin, Clock, Phone, Mail, ArrowUpRight, ChevronDown } from "lucide-react";
 
 export default function LocationAndHours() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);

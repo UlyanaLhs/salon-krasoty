@@ -115,6 +115,7 @@ export default function Home() {
 
       {/* 14. Full AI Beauty Concierge Assistant Modal */}
       <AIConciergeModal
+        key={`concierge-${conciergeOpen ? "open" : "closed"}-${selectedServiceId || ""}-${selectedSpecialistId || ""}`}
         isOpen={conciergeOpen}
         onClose={() => {
           setConciergeOpen(false);
@@ -127,6 +128,7 @@ export default function Home() {
 
       {/* 15. Atelier Legal Policies Modal */}
       <PoliciesModal
+        key={`policies-${policiesOpen ? "open" : "closed"}-${activePolicyTab}`}
         isOpen={policiesOpen}
         initialTab={activePolicyTab}
         onClose={() => setPoliciesOpen(false)}

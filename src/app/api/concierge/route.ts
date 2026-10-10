@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import { SERVICES, SPECIALISTS, SALON_INFO, PACKAGES } from "@/data/salon-data";
+import { SERVICES, SALON_INFO, PACKAGES } from "@/data/salon-data";
 
 export async function POST(req: NextRequest) {
   try {
-    const { message, history, currentStep, bookingState } = await req.json();
+    const { message, currentStep } = await req.json();
     const userQuery = (message || "").toLowerCase().trim();
 
     // Check if an AI provider API key is present

@@ -7,11 +7,6 @@ import {
   X,
   Send,
   Sparkles,
-  Calendar,
-  Clock,
-  User,
-  Mail,
-  Phone,
   CheckCircle2,
   RefreshCw,
   ChevronRight,
@@ -19,12 +14,10 @@ import {
   ArrowRight,
   Copy,
   Check,
-  Minimize2,
-  Maximize2,
 } from "lucide-react";
-import { SERVICES, SPECIALISTS, SALON_INFO } from "@/data/salon-data";
+import { SERVICES, SPECIALISTS } from "@/data/salon-data";
 import { getAvailableSlots, getUpcomingDates, saveBooking, formatEditorialDate } from "@/lib/booking-service";
-import { BookingFormData, BookingRecord, ChatMessage, Service, Specialist } from "@/types";
+import { BookingFormData, BookingRecord, ChatMessage } from "@/types";
 
 interface AIConciergeModalProps {
   isOpen: boolean;
@@ -33,14 +26,30 @@ interface AIConciergeModalProps {
   initialSpecialistId?: string;
 }
 
+let messageSeq = 0;
+function createMessage(
+  sender: "assistant" | "user",
+  text: string,
+  quickReplies?: { label: string; action: string; payload?: unknown }[]
+): ChatMessage {
+  messageSeq += 1;
+  return {
+    id: `msg-${messageSeq}`,
+    sender,
+    text,
+    timestamp: "Just now",
+    quickReplies,
+  };
+}
+
 export default function AIConciergeModal({
   isOpen,
   onClose,
   initialServiceId,
   initialSpecialistId,
 }: AIConciergeModalProps) {
-  // Booking Form State
-  const [bookingState, setBookingState] = useState<Partial<BookingFormData>>({
+  // Booking Form State initialized directly
+  const [bookingState, setBookingState] = useState<Partial<BookingFormData>>(() => ({
     serviceId: initialServiceId || "",
     specialistId: initialSpecialistId || "",
     date: "",
@@ -49,85 +58,67 @@ export default function AIConciergeModal({
     clientEmail: "",
     clientPhone: "",
     notes: "",
-  });
+  }));
 
-  // Current Booking Flow Step
+  // Current Booking Flow Step initialized directly
   const [currentStep, setCurrentStep] = useState<
     "chat" | "select_service" | "select_specialist" | "select_date" | "select_time" | "enter_contact" | "review" | "confirmed"
-  >("chat");
+  >(() => {
+    if (initialServiceId) return "select_specialist";
+    if (initialSpecialistId) return "select_service";
+    return "chat";
+  });
 
-  // Chat message history
-  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  // Chat message history initialized directly
+  const [messages, setMessages] = useState<ChatMessage[]>(() => {
+    if (initialServiceId) {
+      const s = SERVICES.find((item) => item.id === initialServiceId);
+      if (s) {
+        return [
+          createMessage(
+            "assistant",
+            `You have selected the "${s.name}" ($${s.price}, ${s.durationMinutes} min).\n\nPlease select your preferred specialist for this ritual, or choose "Any Available Specialist".`
+          ),
+        ];
+      }
+    }
+    if (initialSpecialistId) {
+      const sp = SPECIALISTS.find((item) => item.id === initialSpecialistId);
+      if (sp) {
+        return [
+          createMessage(
+            "assistant",
+            `You have chosen to book with ${sp.name} (${sp.title}).\n\nWhich of ${sp.name.split(" ")[0]}'s specialized rituals would you like to experience?`
+          ),
+        ];
+      }
+    }
+    return [
+      createMessage(
+        "assistant",
+        `Bonjour. I am your Atelier AI Concierge — a virtual beauty assistant for Atelier Éclat Paris.\n\nI can curate bespoke treatments for your skin, recommend an artisan specialist, or guide you through scheduling your appointment.`,
+        [
+          { label: "Book a Treatment", action: "start_booking" },
+          { label: "Skincare Recommendations", action: "recommend_skin" },
+          { label: "Meet the Artisans", action: "view_specialists" },
+          { label: "Salon Hours & Location", action: "hours_location" },
+        ]
+      ),
+    ];
+  });
+
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [confirmedBooking, setConfirmedBooking] = useState<BookingRecord | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [copiedCode, setCopiedCode] = useState(false);
-  const [upcomingDates, setUpcomingDates] = useState<{ dateStr: string; label: string; weekday: string }[]>([]);
+  const [upcomingDates] = useState<{ dateStr: string; label: string; weekday: string }[]>(() =>
+    getUpcomingDates(14)
+  );
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-
-  // Initialize or update conversation on open
-  useEffect(() => {
-    if (isOpen) {
-      setUpcomingDates(getUpcomingDates(14));
-      if (initialServiceId) {
-        setBookingState((prev) => ({ ...prev, serviceId: initialServiceId }));
-      }
-      if (initialSpecialistId) {
-        setBookingState((prev) => ({ ...prev, specialistId: initialSpecialistId }));
-      }
-
-      if (messages.length === 0) {
-        const welcomeMessage: ChatMessage = {
-          id: "welcome-1",
-          sender: "assistant",
-          text: `Bonjour. I am your Atelier AI Concierge — a virtual beauty assistant for Atelier Éclat Paris.\n\nI can curate bespoke treatments for your skin, recommend an artisan specialist, or guide you through scheduling your appointment.`,
-          timestamp: "Just now",
-          quickReplies: [
-            { label: "Book a Treatment", action: "start_booking" },
-            { label: "Skincare Recommendations", action: "recommend_skin" },
-            { label: "Meet the Artisans", action: "view_specialists" },
-            { label: "Salon Hours & Location", action: "hours_location" },
-          ],
-        };
-        setMessages([welcomeMessage]);
-      }
-    }
-  }, [isOpen, initialServiceId, initialSpecialistId, messages.length]);
-
-  // Handle preselected triggers from parent
-  useEffect(() => {
-    if (isOpen && initialServiceId) {
-      const s = SERVICES.find((item) => item.id === initialServiceId);
-      if (s) {
-        setBookingState((prev) => ({ ...prev, serviceId: s.id }));
-        setCurrentStep("select_specialist");
-        const notifyMsg: ChatMessage = {
-          id: `preselect-${Date.now()}`,
-          sender: "assistant",
-          text: `You have selected the "${s.name}" ($${s.price}, ${s.durationMinutes} min).\n\nPlease select your preferred specialist for this ritual, or choose "Any Available Specialist".`,
-          timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-        };
-        setMessages((prev) => [...prev, notifyMsg]);
-      }
-    } else if (isOpen && initialSpecialistId) {
-      const sp = SPECIALISTS.find((item) => item.id === initialSpecialistId);
-      if (sp) {
-        setBookingState((prev) => ({ ...prev, specialistId: sp.id }));
-        setCurrentStep("select_service");
-        const notifyMsg: ChatMessage = {
-          id: `preselect-sp-${Date.now()}`,
-          sender: "assistant",
-          text: `You have chosen to book with ${sp.name} (${sp.title}).\n\nWhich of ${sp.name.split(" ")[0]}'s specialized rituals would you like to experience?`,
-          timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-        };
-        setMessages((prev) => [...prev, notifyMsg]);
-      }
-    }
-  }, [isOpen, initialServiceId, initialSpecialistId]);
 
   // Scroll to bottom on message update
   useEffect(() => {
@@ -154,12 +145,7 @@ export default function AIConciergeModal({
     setErrorMessage(null);
 
     // Append user message
-    const userMsg: ChatMessage = {
-      id: `user-${Date.now()}`,
-      sender: "user",
-      text: query,
-      timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-    };
+    const userMsg = createMessage("user", query);
     setMessages((prev) => [...prev, userMsg]);
     setIsTyping(true);
 
@@ -179,13 +165,7 @@ export default function AIConciergeModal({
       setIsTyping(false);
 
       if (data.reply) {
-        const assistantMsg: ChatMessage = {
-          id: `assistant-${Date.now()}`,
-          sender: "assistant",
-          text: data.reply,
-          timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-          quickReplies: data.quickReplies,
-        };
+        const assistantMsg = createMessage("assistant", data.reply, data.quickReplies);
         setMessages((prev) => [...prev, assistantMsg]);
 
         // If user explicitly asked to start booking
@@ -211,16 +191,14 @@ export default function AIConciergeModal({
     } catch (err) {
       console.error("AI Concierge error:", err);
       setIsTyping(false);
-      const fallbackMsg: ChatMessage = {
-        id: `err-${Date.now()}`,
-        sender: "assistant",
-        text: "I am at your service. Please choose an option below to proceed directly with your reservation.",
-        timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-        quickReplies: [
+      const fallbackMsg = createMessage(
+        "assistant",
+        "I am at your service. Please choose an option below to proceed directly with your reservation.",
+        [
           { label: "Choose a Treatment", action: "start_booking" },
           { label: "View Available Times", action: "view_times" },
-        ],
-      };
+        ]
+      );
       setMessages((prev) => [...prev, fallbackMsg]);
     }
   };
@@ -233,12 +211,7 @@ export default function AIConciergeModal({
         setCurrentStep("select_service");
         setMessages((prev) => [
           ...prev,
-          {
-            id: `reply-${Date.now()}`,
-            sender: "assistant",
-            text: "Please select the ritual you wish to reserve:",
-            timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-          },
+          createMessage("assistant", "Please select the ritual you wish to reserve:"),
         ]);
         break;
 
@@ -282,18 +255,8 @@ export default function AIConciergeModal({
 
     setMessages((prev) => [
       ...prev,
-      {
-        id: `sel-serv-${Date.now()}`,
-        sender: "user",
-        text: `Selected Ritual: ${service.name} ($${service.price}, ${service.durationMinutes}m)`,
-        timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-      },
-      {
-        id: `rep-spec-${Date.now()}`,
-        sender: "assistant",
-        text: `Magnifique choice. Which specialist would you prefer for your ${service.name}?`,
-        timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-      },
+      createMessage("user", `Selected Ritual: ${service.name} ($${service.price}, ${service.durationMinutes}m)`),
+      createMessage("assistant", `Magnifique choice. Which specialist would you prefer for your ${service.name}?`),
     ]);
   };
 
@@ -307,18 +270,8 @@ export default function AIConciergeModal({
 
     setMessages((prev) => [
       ...prev,
-      {
-        id: `sel-spec-${Date.now()}`,
-        sender: "user",
-        text: `Practitioner Preference: ${specialistName}`,
-        timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-      },
-      {
-        id: `rep-date-${Date.now()}`,
-        sender: "assistant",
-        text: `Noted with care. Please choose your preferred date for the appointment:`,
-        timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-      },
+      createMessage("user", `Practitioner Preference: ${specialistName}`),
+      createMessage("assistant", `Noted with care. Please choose your preferred date for the appointment:`),
     ]);
   };
 
@@ -329,20 +282,11 @@ export default function AIConciergeModal({
 
     setMessages((prev) => [
       ...prev,
-      {
-        id: `sel-date-${Date.now()}`,
-        sender: "user",
-        text: `Date: ${formatEditorialDate(dateStr)}`,
-        timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-      },
-      {
-        id: `rep-time-${Date.now()}`,
-        sender: "assistant",
-        text: `We have retrieved the current available salon slots for ${formatEditorialDate(
-          dateStr
-        )}. Please select your preferred time:`,
-        timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-      },
+      createMessage("user", `Date: ${formatEditorialDate(dateStr)}`),
+      createMessage(
+        "assistant",
+        `We have retrieved the current available salon slots for ${formatEditorialDate(dateStr)}. Please select your preferred time:`
+      ),
     ]);
   };
 
@@ -353,18 +297,11 @@ export default function AIConciergeModal({
 
     setMessages((prev) => [
       ...prev,
-      {
-        id: `sel-time-${Date.now()}`,
-        sender: "user",
-        text: `Time: ${timeStr}`,
-        timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-      },
-      {
-        id: `rep-contact-${Date.now()}`,
-        sender: "assistant",
-        text: `Perfect. To finalize your demonstration reservation card, please provide your guest contact details below.`,
-        timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-      },
+      createMessage("user", `Time: ${timeStr}`),
+      createMessage(
+        "assistant",
+        `Perfect. To finalize your demonstration reservation card, please provide your guest contact details below.`
+      ),
     ]);
   };
 
@@ -414,18 +351,16 @@ export default function AIConciergeModal({
           origin: { y: 0.7 },
           colors: ["#B89D72", "#E8DCD8", "#FAF8F5", "#261C18"],
         });
-      } catch (cErr) {
+      } catch {
         // ignore in non-browser environments
       }
 
       setMessages((prev) => [
         ...prev,
-        {
-          id: `confirm-${Date.now()}`,
-          sender: "assistant",
-          text: `Your reservation request has been confirmed under demonstration reference ${savedRecord.id}. We look forward to welcoming you to Atelier Éclat.`,
-          timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-        },
+        createMessage(
+          "assistant",
+          `Your reservation request has been confirmed under demonstration reference ${savedRecord.id}. We look forward to welcoming you to Atelier Éclat.`
+        ),
       ]);
     } catch (err) {
       console.error("Booking submission error:", err);

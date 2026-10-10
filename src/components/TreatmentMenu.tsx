@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Image from "next/image";
-import { Clock, ArrowUpRight, Search, Sparkles, Check } from "lucide-react";
+import { Clock, ArrowUpRight, Search, Sparkles } from "lucide-react";
 import { SERVICES, SPECIALISTS } from "@/data/salon-data";
 import { ServiceCategory } from "@/types";
 

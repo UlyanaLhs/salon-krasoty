@@ -123,11 +123,12 @@ export function formatEditorialDate(dateStr: string): string {
  */
 export function getUpcomingDates(count = 14): { dateStr: string; label: string; weekday: string }[] {
   const result = [];
-  const today = new Date();
+  // Deterministic October 2026 calendar base for reproducible prerendering and demonstration
+  const baseTimestamp = Date.UTC(2026, 9, 12);
+  const baseDate = new Date(baseTimestamp);
 
   for (let i = 1; i <= count; i++) {
-    const nextDate = new Date(today);
-    nextDate.setDate(today.getDate() + i);
+    const nextDate = new Date(baseDate.getTime() + (i - 1) * 86400000);
     const dateStr = nextDate.toISOString().split("T")[0];
     const weekday = nextDate.toLocaleDateString("en-US", { weekday: "short" });
     const label = nextDate.toLocaleDateString("en-US", { month: "short", day: "numeric" });
