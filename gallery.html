@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visual Gallery — ATELIER BEAUTÉ</title>
+  <meta name="description" content="A curated visual portfolio capturing moments of aesthetic craft, botanical skincare still life, hair styling, natural manicure artistry, and salon architecture.">
+  <meta name="keywords" content="beauty gallery, salon portfolio, editorial beauty photography, aesthetic portfolio, atelier beaute">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Visual Gallery — ATELIER BEAUTÉ">
+  <meta property="og:description" content="A curated portfolio of aesthetic craft, skincare still lifes, and salon architecture.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/hero-beauty-editorial.webp">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/responsive.css">
+
+  <style>
+    .gallery-filter-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: var(--space-8);
+    }
+    .gallery-filter-btn {
+      background: transparent;
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-pill);
+      padding: 0.45rem 1.15rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--color-espresso-soft);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      touch-action: manipulation;
+    }
+    .gallery-filter-btn:hover {
+      border-color: var(--color-espresso);
+      color: var(--color-espresso);
+    }
+    .gallery-filter-btn.active {
+      background-color: var(--color-espresso);
+      border-color: var(--color-espresso);
+      color: var(--color-ivory);
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container header-container">
+      <a href="index.html" class="brand-link" aria-label="Atelier Beauté Home">
+        <span class="brand-name">ATELIER BEAUTÉ</span>
+        <span class="brand-descriptor">BEAUTY • CARE • RITUAL</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Primary Navigation">
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="specialists.html" class="nav-link">Specialists</a>
+        <a href="about.html" class="nav-link">Our Studio</a>
+        <a href="gallery.html" class="nav-link active" aria-current="page">Gallery</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="booking.html" class="btn btn-primary">
+          <span>Book an Appointment</span>
+          <span class="btn-icon-bubble" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="mobile-nav-drawer" aria-label="Toggle navigation menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-nav-drawer" class="mobile-drawer" aria-hidden="true">
+    <nav aria-label="Mobile Navigation">
+      <ul class="mobile-nav-list">
+        <li><a href="services.html" class="mobile-nav-link">Services</a></li>
+        <li><a href="specialists.html" class="mobile-nav-link">Specialists</a></li>
+        <li><a href="about.html" class="mobile-nav-link">Our Studio</a></li>
+        <li><a href="gallery.html" class="mobile-nav-link active">Gallery</a></li>
+        <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+        <li><a href="booking.html" class="mobile-nav-link">Book an Appointment</a></li>
+      </ul>
+    </nav>
+    <div class="mobile-drawer-footer">
+      <span class="demo-disclaimer-pill">Demonstration Project</span>
+      <p style="font-size: 0.8rem; color: var(--color-taupe);">Tuesday – Saturday, by appointment</p>
+    </div>
+  </div>
+
+  <main id="main-content">
+    
+    <!-- Title Section -->
+    <section class="section" style="padding-bottom: 2rem;" aria-label="Gallery Introduction">
+      <div class="container container-narrow text-center" style="text-align: center;">
+        <span class="eyebrow-pill">Portfolio &amp; Atmosphere</span>
+        <h1 class="display-title" style="margin-bottom: 1.25rem;">
+          Moments of Craft &amp; Stillness
+        </h1>
+        <p class="lead" style="margin: 0 auto 1.5rem auto; max-width: 58ch;">
+          A visual exploration of our studio aesthetic, delicate treatment protocols, botanical still lifes, and editorial beauty compositions.
+        </p>
+        <span class="demo-disclaimer-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          Notice: Gallery assets are original AI demonstration photographs created for conceptual brand representation.
+        </span>
+      </div>
+    </section>
+
+    <!-- Gallery Grid with Filter Tabs -->
+    <section class="section" style="padding-top: 1rem;" aria-label="Visual Gallery Grid">
+      <div class="container">
+        
+        <!-- Filter Tabs -->
+        <div class="gallery-filter-toolbar" role="tablist" aria-label="Filter gallery by category">
+          <button class="gallery-filter-btn active" data-filter="all" role="tab" aria-selected="true">All Perspectives</button>
+          <button class="gallery-filter-btn" data-filter="skincare" role="tab" aria-selected="false">Skincare</button>
+          <button class="gallery-filter-btn" data-filter="hair" role="tab" aria-selected="false">Hair Artistry</button>
+          <button class="gallery-filter-btn" data-filter="nails" role="tab" aria-selected="false">Nail Craft</button>
+          <button class="gallery-filter-btn" data-filter="makeup" role="tab" aria-selected="false">Makeup &amp; Brows</button>
+          <button class="gallery-filter-btn" data-filter="studio" role="tab" aria-selected="false">Studio Space</button>
+        </div>
+
+        <!-- Image Items -->
+        <div class="gallery-grid" id="galleryGrid">
+
+          <!-- 1. Editorial Portrait Hero -->
+          <div class="gallery-item wide reveal" data-category="skincare" tabindex="0" role="button" aria-label="View Editorial Beauty Portrait" data-caption="Natural luminous skin texture captured in soft daylight">
+            <picture>
+              <source srcset="assets/images/hero-beauty-editorial.webp" type="image/webp">
+              <img src="assets/images/hero-beauty-editorial.jpg" alt="Editorial beauty model portrait with radiant natural skin in soft light" width="1376" height="768" fetchpriority="high">
+            </picture>
+            <div class="gallery-item-overlay">
+              <span class="gallery-tag">Editorial Portrait</span>
+              <span class="gallery-caption">Natural Luminous Complexion</span>
+            </div>
+          </div>
+
+          <!-- 2. Facial Treatment -->
+          <div class="gallery-item reveal" data-category="skincare" tabindex="0" role="button" aria-label="View Facial Treatment Protocol" data-caption="Botanical facial treatment with gentle manual lymphatic massage">
+            <picture>
+              <source srcset="assets/images/facial-treatment.webp" type="image/webp">
+              <img src="assets/images/facial-treatment.jpg" alt="Aesthetician performing botanical facial serum massage" width="1200" height="896" loading="lazy">
+            </picture>
+            <div class="gallery-item-overlay">
+              <span class="gallery-tag">Skincare</span>
+              <span class="gallery-caption">Cellular Renewal Protocol</span>
+            </div>
+          </div>
+
+          <!-- 3. Hair Styling -->
+          <div class="gallery-item reveal" data-category="hair" tabindex="0" role="button" aria-label="View Hair Styling Detail" data-caption="Precision hair styling shaping glossy, natural brunette waves">
+            <picture>
+              <source srcset="assets/images/hair-styling.webp" type="image/webp">
+              <img src="assets/images/hair-styling.jpg" alt="Master hair stylist gently combing healthy wavy brunette hair" width="1200" height="896" loading="lazy">
+            </picture>
+            <div class="gallery-item-overlay">
+              <span class="gallery-tag">Hair Artistry</span>
+              <span class="gallery-caption">Effortless Organic Wave</span>
+            </div>
+          </div>
+
+          <!-- 4. Manicure Detail -->
+          <div class="gallery-item reveal" data-category="nails" tabindex="0" role="button" aria-label="View Manicure Craft" data-caption="Clean dry cuticle alignment and sheer nude lacquer">
+            <picture>
+              <source srcset="assets/images/manicure-detail.webp" type="image/webp">
+              <img src="assets/images/manicure-detail.jpg" alt="Close-up macro of elegant sheer manicure on natural fingernails" width="1200" height="896" loading="lazy">
+            </picture>
+            <div class="gallery-item-overlay">
+              <span class="gallery-tag">Nail Craft</span>
+              <span class="gallery-caption">Understated Sheer Manicure</span>
+            </div>
+          </div>
+
+          <!-- 5. Makeup Artistry -->
+          <div class="gallery-item reveal" data-category="makeup" tabindex="0" role="button" aria-label="View Makeup Artistry" data-caption="Delicate blending of taupe and dusty rose tones on eyes">
+            <picture>
+              <source srcset="assets/images/makeup-artistry.webp" type="image/webp">
+              <img src="assets/images/makeup-artistry.jpg" alt="Makeup artist applying delicate neutral eyeshadow with fine blending brush" width="1200" height="896" loading="lazy">
+            </picture>
+            <div class="gallery-item-overlay">
+              <span class="gallery-tag">Makeup</span>
+              <span class="gallery-caption">Soft-Focus Evening Palette</span>
+            </div>
+          </div>
+
+          <!-- 6. Brows & Lashes -->
+          <div class="gallery-item reveal" data-category="makeup" tabindex="0" role="button" aria-label="View Brow and Lash Architecture" data-caption="Naturally feathered brow arches and curled lash glaze">
+            <picture>
+              <source srcset="assets/images/brows-lashes.webp" type="image/webp">
+              <img src="assets/images/brows-lashes.jpg" alt="Macro portrait of feathered natural eyebrows and defined curled lashes" width="1200" height="896" loading="lazy">
+            </picture>
+            <div class="gallery-item-overlay">
+              <span class="gallery-tag">Framing</span>
+              <span class="gallery-caption">Feathered Brow Architecture</span>
+            </div>
+          </div>
+
+          <!-- 7. Salon Interior -->
+          <div class="gallery-item wide reveal" data-category="studio" tabindex="0" role="button" aria-label="View Salon Architecture" data-caption="Travertine stone reception and warm limewash archways">
+            <picture>
+              <source srcset="assets/images/salon-interior.webp" type="image/webp">
+              <img src="assets/images/salon-interior.jpg" alt="Minimalist salon interior with fluted wood, travertine, and archways" width="1376" height="768" loading="lazy">
+            </picture>
+            <div class="gallery-item-overlay">
+              <span class="gallery-tag">Architecture</span>
+              <span class="gallery-caption">The Reception Sanctuary</span>
+            </div>
+          </div>
+
+          <!-- 8. Skincare Still Life -->
+          <div class="gallery-item reveal" data-category="skincare" tabindex="0" role="button" aria-label="View Skincare Still Life" data-caption="Ceramic jars, amber dropper bottle, and dried botanicals on travertine">
+            <picture>
+              <source srcset="assets/images/skincare-still-life.webp" type="image/webp">
+              <img src="assets/images/skincare-still-life.jpg" alt="Still life of amber dropper and ceramic face cream jar on travertine pedestal" width="1200" height="896" loading="lazy">
+            </picture>
+            <div class="gallery-item-overlay">
+              <span class="gallery-tag">Botanicals</span>
+              <span class="gallery-caption">Bioactive Formulations</span>
+            </div>
+          </div>
+
+          <!-- 9. Ritual Detail -->
+          <div class="gallery-item reveal" data-category="studio" tabindex="0" role="button" aria-label="View Ritual Detail" data-caption="Ceramic wellness vessels and warm textured linens">
+            <picture>
+              <source srcset="assets/images/beauty-treatment-detail.webp" type="image/webp">
+              <img src="assets/images/beauty-treatment-detail.jpg" alt="Detail of beauty treatment botanical bowl, linen, and oils" width="1200" height="896" loading="lazy">
+            </picture>
+            <div class="gallery-item-overlay">
+              <span class="gallery-tag">Details</span>
+              <span class="gallery-caption">Sensory Preparation</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Booking CTA -->
+    <section class="section section-soft text-center" aria-label="Request Appointment">
+      <div class="container container-narrow" style="text-align: center;">
+        <span class="eyebrow">Inspired by Our Work?</span>
+        <h2>Experience these rituals in person.</h2>
+        <p class="lead mt-4" style="margin: 0 auto 2rem auto; max-width: 52ch;">
+          We welcome you to submit an appointment request or consult our AI concierge to discover the perfect treatment for your schedule.
+        </p>
+        <a href="booking.html" class="btn btn-primary">
+          <span>Book an Appointment</span>
+          <span class="btn-icon-bubble" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Accessible Lightbox Modal -->
+  <div id="lightboxModal" class="lightbox-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Image Preview">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" aria-label="Close Lightbox (Press Escape)">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <button class="lightbox-ctrl-btn lightbox-prev" aria-label="Previous Image (Left Arrow)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+
+      <img class="lightbox-img" src="" alt="">
+      <p class="lightbox-caption-text"></p>
+
+      <button class="lightbox-ctrl-btn lightbox-next" aria-label="Next Image (Right Arrow)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Global Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="brand-name">ATELIER BEAUTÉ</span>
+          <span class="brand-descriptor">BEAUTY • CARE • RITUAL</span>
+          <p class="footer-mission">
+            A contemporary beauty studio combining expert technical craft, organic botanical formulations, and a calm luxury experience.
+          </p>
+          <div class="mt-4">
+            <span class="fictional-entity-tag">Fictional Sample Salon</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services &amp; Pricing</a></li>
+            <li><a href="specialists.html">Specialists</a></li>
+            <li><a href="about.html">Our Studio</a></li>
+            <li><a href="gallery.html">Visual Gallery</a></li>
+            <li><a href="booking.html">Appointment Request</a></li>
+            <li><a href="contact.html">Contact &amp; Studio</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Services</h4>
+          <ul class="footer-links-list">
+            <li><a href="services.html#facials">Facial Treatments</a></li>
+            <li><a href="services.html#hair">Hair Styling &amp; Color</a></li>
+            <li><a href="services.html#nails">Manicure &amp; Pedicure</a></li>
+            <li><a href="services.html#makeup">Makeup Artistry</a></li>
+            <li><a href="services.html#brows">Brows &amp; Lashes</a></li>
+            <li><a href="services.html#rituals">Signature Rituals</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Studio Information</h4>
+          <div class="footer-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>[Studio Address Placeholder]<br>42 Boulevard des Beaux-Arts</span>
+          </div>
+          <div class="footer-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>[Phone Placeholder] +1 (555) 019-2834</span>
+          </div>
+          <div class="footer-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Tue &ndash; Fri: 09:30 &ndash; 19:30<br>Sat: 09:00 &ndash; 18:00<br>Sun &amp; Mon: By Private Request</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 ATELIER BEAUTÉ. All rights reserved. Demonstration Website.
+        </div>
+        <div class="footer-legal-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Use</a>
+          <a href="404.html">404 Error Page</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AI Concierge Widget -->
+  <aside class="ai-concierge-widget" aria-label="AI Concierge Assistant">
+    <div class="ai-chat-window" aria-hidden="true">
+      <div class="ai-chat-header">
+        <div class="ai-header-info">
+          <div class="ai-avatar" aria-hidden="true">AB</div>
+          <div>
+            <div class="ai-header-title">Atelier AI Concierge</div>
+            <div class="ai-header-subtitle">Beauty &amp; Treatment Guide</div>
+          </div>
+        </div>
+        <button class="ai-chat-close-btn modal-close-btn" aria-label="Close AI Concierge Window" style="position: static;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="ai-chat-disclaimer">
+        <span>Simulated Demo Mode • No API key required</span>
+        <span style="font-size: 0.65rem; color: var(--color-taupe);">Offline Safe</span>
+      </div>
+
+      <div class="ai-chat-messages" role="log" aria-live="polite">
+        <div class="chat-msg bot">
+          <div class="msg-bubble">
+            <div style="font-weight: 600; margin-bottom: 4px; font-family: var(--font-serif);">Visual Portfolio Inquiries</div>
+            <p style="margin: 0; font-size: 0.86rem; line-height: 1.45;">
+              See a style or treatment in our gallery that you'd love to recreate? Tell me which image caught your eye and I'll find the matching service!
+            </p>
+          </div>
+          <span class="msg-time">Just now</span>
+        </div>
+      </div>
+
+      <div class="ai-prompts-row" aria-label="Quick prompts">
+        <button class="ai-prompt-chip" data-prompt="Which service matches the sheer manicure?">Sheer manicure</button>
+        <button class="ai-prompt-chip" data-prompt="Tell me about the natural brow styling">Brow styling</button>
+        <button class="ai-prompt-chip" data-prompt="How do I book a photoshoot hair session?">Hair session</button>
+      </div>
+
+      <form class="ai-chat-input-form" aria-label="Chat with AI Concierge">
+        <input type="text" class="ai-chat-input" placeholder="Ask about any look or treatment…" aria-label="Type your question" autocomplete="off" spellcheck="false">
+        <button type="submit" class="ai-chat-send-btn" aria-label="Send question">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </form>
+    </div>
+
+    <button class="ai-launcher-btn" aria-expanded="false" aria-label="Open Atelier AI Concierge">
+      <span class="ai-launcher-icon-bubble" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </span>
+      <span class="ai-launcher-label">AI Concierge</span>
+    </button>
+  </aside>
+
+  <!-- Back to top button -->
+  <button class="back-to-top" aria-label="Back to top of page">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Scripts -->
+  <script src="scripts/services.js"></script>
+  <script src="scripts/navigation.js"></script>
+  <script src="scripts/gallery.js"></script>
+  <script src="scripts/ai-concierge.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+</html>

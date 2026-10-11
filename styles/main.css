@@ -1,0 +1,450 @@
+/* ==========================================================================
+   ATELIER BEAUTÉ — BRAND DESIGN SYSTEM & CORE STYLES
+   Descriptor: BEAUTY • CARE • RITUAL
+   Aesthetic: Contemporary Calm Luxury Editorial
+   ========================================================================== */
+
+:root {
+  /* Brand Color Palette */
+  --color-ivory: #F7F3ED;        /* Primary Canvas Background */
+  --color-porcelain: #EAE2D8;    /* Secondary Soft Surface */
+  --color-surface-white: #FFFFFF;/* Elevated Card Surface */
+  --color-taupe: #A59688;        /* Subtle Meta / Borders / Muted Text */
+  --color-taupe-light: #DDD5CB;  /* Hairline Borders */
+  --color-espresso: #302823;     /* Primary Text & Deep Accents */
+  --color-espresso-soft: #544941;/* Body Text */
+  --color-rose: #C8A7A0;         /* Accent Tone */
+  --color-rose-subtle: #F3EAE7;  /* Soft Tint */
+  --color-charcoal: #252321;     /* Contrast Footer & Dark Elements */
+  
+  /* Semantic Tokens */
+  --color-bg-base: var(--color-ivory);
+  --color-bg-surface: var(--color-surface-white);
+  --color-bg-subtle: var(--color-porcelain);
+  --color-text-primary: var(--color-espresso);
+  --color-text-secondary: var(--color-espresso-soft);
+  --color-text-muted: #7E7268;
+  --color-border-subtle: rgba(48, 40, 35, 0.12);
+  --color-border-hover: rgba(48, 40, 35, 0.28);
+  --color-accent: var(--color-rose);
+  --color-success: #346538;
+  --color-error: #9F2F2D;
+  --color-focus: #302823;
+
+  /* Typography Scales */
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', 'Didot', 'Bodoni MT', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
+
+  /* Fluid Type Hierarchy */
+  --font-size-display: clamp(2.5rem, 5vw + 1rem, 4.75rem);
+  --font-size-h1: clamp(2.1rem, 3.5vw + 1rem, 3.5rem);
+  --font-size-h2: clamp(1.65rem, 2.2vw + 0.8rem, 2.6rem);
+  --font-size-h3: clamp(1.3rem, 1.4vw + 0.6rem, 1.75rem);
+  --font-size-h4: clamp(1.1rem, 0.8vw + 0.5rem, 1.25rem);
+  --font-size-lead: clamp(1.05rem, 0.5vw + 0.9rem, 1.25rem);
+  --font-size-body: 1rem;
+  --font-size-sm: 0.875rem;
+  --font-size-xs: 0.75rem;
+
+  /* Spacing System (Consistent 4px/8px rhythm) */
+  --space-1: 0.25rem;  /* 4px */
+  --space-2: 0.5rem;   /* 8px */
+  --space-3: 0.75rem;  /* 12px */
+  --space-4: 1rem;     /* 16px */
+  --space-5: 1.25rem;  /* 20px */
+  --space-6: 1.5rem;   /* 24px */
+  --space-8: 2rem;     /* 32px */
+  --space-10: 2.5rem;  /* 40px */
+  --space-12: 3rem;    /* 48px */
+  --space-16: 4rem;    /* 64px */
+  --space-20: 5rem;    /* 80px */
+  --space-24: 6rem;    /* 96px */
+  --space-32: 8rem;    /* 128px */
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 9999px;
+
+  /* Transitions & Animation Easing */
+  --ease-natural: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-snappy: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 180ms var(--ease-natural);
+  --transition-normal: 320ms var(--ease-natural);
+  --transition-slow: 600ms var(--ease-natural);
+
+  /* Shadows (Subtle, warm-tinted, never harsh black) */
+  --shadow-subtle: 0 2px 12px rgba(48, 40, 35, 0.04);
+  --shadow-card: 0 10px 30px -8px rgba(48, 40, 35, 0.07);
+  --shadow-float: 0 16px 40px -10px rgba(48, 40, 35, 0.12);
+  --shadow-inner-glow: inset 0 1px 1px rgba(255, 255, 255, 0.6);
+
+  /* Layout Containers */
+  --container-max: 1280px;
+  --container-narrow: 840px;
+  --container-padding: clamp(1rem, 4vw, 2.5rem);
+}
+
+/* ==========================================================================
+   Base Reset & Global Ergonomics
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+  background-color: var(--color-bg-base);
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Skip to content link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: var(--color-espresso);
+  color: var(--color-ivory);
+  padding: var(--space-3) var(--space-6);
+  z-index: 10000;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 1rem;
+  outline: 2px solid var(--color-rose);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Typography Rules
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  color: var(--color-text-primary);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--font-size-h1); }
+h2 { font-size: var(--font-size-h2); }
+h3 { font-size: var(--font-size-h3); }
+h4 { font-size: var(--font-size-h4); font-family: var(--font-sans); font-weight: 600; }
+
+.display-title {
+  font-family: var(--font-serif);
+  font-size: var(--font-size-display);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--color-espresso);
+  text-wrap: balance;
+}
+
+.display-title em,
+h1 em, h2 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-espresso);
+  padding-bottom: 0.1em;
+}
+
+p {
+  max-width: 68ch;
+  margin-bottom: var(--space-4);
+  text-wrap: pretty;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+.lead {
+  font-size: var(--font-size-lead);
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--color-espresso);
+  margin-bottom: var(--space-3);
+}
+
+.eyebrow-pill {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 0.25rem 0.75rem;
+  background-color: rgba(48, 40, 35, 0.05);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-pill);
+  color: var(--color-espresso);
+  margin-bottom: var(--space-4);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==========================================================================
+   Links & Focus Visibility (WCAG AA)
+   ========================================================================== */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-espresso);
+  outline-offset: 3px;
+}
+
+/* Images & Media */
+img, picture, svg, video {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+/* ==========================================================================
+   Layout Containers & Structural Grids
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: var(--container-narrow);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.section {
+  padding-top: clamp(4rem, 8vw, 7.5rem);
+  padding-bottom: clamp(4rem, 8vw, 7.5rem);
+  position: relative;
+}
+
+.section-soft {
+  background-color: var(--color-porcelain);
+}
+
+.section-white {
+  background-color: var(--color-surface-white);
+}
+
+.section-charcoal {
+  background-color: var(--color-charcoal);
+  color: var(--color-ivory);
+}
+
+.section-charcoal h1,
+.section-charcoal h2,
+.section-charcoal h3,
+.section-charcoal h4 {
+  color: var(--color-ivory);
+}
+
+.section-charcoal p {
+  color: rgba(247, 243, 237, 0.8);
+}
+
+.section-charcoal .eyebrow {
+  color: var(--color-rose);
+}
+
+.section-charcoal .eyebrow-pill {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--color-ivory);
+}
+
+/* Asymmetrical & Standard Grids */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+}
+
+.grid-split-50-50 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.grid-split-60-40 {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.grid-split-40-60 {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+/* Flex Helpers */
+.flex { display: flex; }
+.flex-col { display: flex; flex-direction: column; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.gap-2 { gap: var(--space-2); }
+.gap-4 { gap: var(--space-4); }
+.gap-6 { gap: var(--space-6); }
+.gap-8 { gap: var(--space-8); }
+
+/* Spacing Helpers */
+.mt-4 { margin-top: var(--space-4); }
+.mt-6 { margin-top: var(--space-6); }
+.mt-8 { margin-top: var(--space-8); }
+.mt-12 { margin-top: var(--space-12); }
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-6 { margin-bottom: var(--space-6); }
+.mb-8 { margin-bottom: var(--space-8); }
+.mb-12 { margin-bottom: var(--space-12); }
+
+/* Accessibility & Screen Reader */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Badge & Disclaimer Notice */
+.demo-disclaimer-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background-color: rgba(48, 40, 35, 0.06);
+  color: var(--color-espresso);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.demo-disclaimer-pill svg {
+  width: 12px;
+  height: 12px;
+  color: var(--color-taupe);
+}
+
+/* Scroll Reveal Transitions */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 600ms var(--ease-snappy), transform 600ms var(--ease-snappy);
+  will-change: opacity, transform;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Back to top button */
+.back-to-top {
+  position: fixed;
+  bottom: 5.5rem;
+  right: 1.75rem;
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-surface-white);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-pill);
+  color: var(--color-espresso);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  box-shadow: var(--shadow-subtle);
+  z-index: 8000;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  background-color: var(--color-porcelain);
+  transform: translateY(-2px);
+}
+

@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATELIER BEAUTÉ — Contemporary Beauty, Care & Ritual</title>
+  <meta name="description" content="Atelier Beauté is a contemporary luxury beauty studio offering bespoke facial treatments, hair styling, manicure artistry, makeup, and personalized rituals.">
+  <meta name="keywords" content="beauty salon, facial treatments, hair styling, manicure, pedicure, luxury beauty studio, skincare ritual, atelier beaute">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="ATELIER BEAUTÉ — Contemporary Beauty, Care & Ritual">
+  <meta property="og:description" content="Thoughtful treatments, expert hands, and a more personal approach to beauty. Explore our services and book an appointment.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/hero-beauty-editorial.webp">
+  
+  <!-- Preconnect & Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/responsive.css">
+</head>
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Global Header -->
+  <header class="site-header" role="banner">
+    <div class="container header-container">
+      <a href="index.html" class="brand-link" aria-label="Atelier Beauté Home">
+        <span class="brand-name">ATELIER BEAUTÉ</span>
+        <span class="brand-descriptor">BEAUTY • CARE • RITUAL</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-desktop" aria-label="Primary Navigation">
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="specialists.html" class="nav-link">Specialists</a>
+        <a href="about.html" class="nav-link">Our Studio</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Action Button & Mobile Toggle -->
+      <div class="header-actions">
+        <a href="booking.html" class="btn btn-primary">
+          <span>Book an Appointment</span>
+          <span class="btn-icon-bubble" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="mobile-nav-drawer" aria-label="Toggle navigation menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-nav-drawer" class="mobile-drawer" aria-hidden="true">
+    <nav aria-label="Mobile Navigation">
+      <ul class="mobile-nav-list">
+        <li><a href="services.html" class="mobile-nav-link">Services</a></li>
+        <li><a href="specialists.html" class="mobile-nav-link">Specialists</a></li>
+        <li><a href="about.html" class="mobile-nav-link">Our Studio</a></li>
+        <li><a href="gallery.html" class="mobile-nav-link">Gallery</a></li>
+        <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+        <li><a href="booking.html" class="mobile-nav-link">Book an Appointment</a></li>
+      </ul>
+    </nav>
+    <div class="mobile-drawer-footer">
+      <span class="demo-disclaimer-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        Demonstration Project
+      </span>
+      <p style="font-size: 0.8rem; color: var(--color-taupe);">Tuesday – Saturday, by appointment</p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- 1. Hero Section -->
+    <section class="section hero-editorial" aria-label="Welcome to Atelier Beauté">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow-pill">The Sanctuary for Modern Care</span>
+          <h1 class="display-title hero-headline">
+            Beauty, with <em>intention.</em>
+          </h1>
+          <p class="hero-subtext">
+            Thoughtful treatments, expert hands, and a more personal approach to beauty. We create space for you to pause, restore, and rediscover your natural radiance.
+          </p>
+          <div class="hero-cta-group">
+            <a href="booking.html" class="btn btn-primary">
+              <span>Book an Appointment</span>
+              <span class="btn-icon-bubble" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </a>
+            <a href="services.html" class="btn btn-secondary">
+              Explore Our Services
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-image-frame reveal">
+          <div class="hero-img-wrap">
+            <picture>
+              <source srcset="assets/images/hero-beauty-editorial.webp" type="image/webp">
+              <img src="assets/images/hero-beauty-editorial.jpg" alt="Editorial beauty portrait in soft natural daylight" width="1376" height="768" fetchpriority="high">
+            </picture>
+          </div>
+          <div class="hero-badge-overlay">
+            <div class="hero-badge-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div class="hero-badge-text">
+              Customized formulations &amp; slow aesthetic rituals tailored to your skin.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Brand Introduction Section -->
+    <section class="section section-soft" aria-label="Brand Philosophy">
+      <div class="container">
+        <div class="grid-split-50-50">
+          <div class="reveal">
+            <span class="eyebrow">Our Philosophy</span>
+            <h2>Your time. Your ritual.<br>Your kind of beauty.</h2>
+          </div>
+          <div class="reveal">
+            <p class="lead">
+              Atelier Beauté was conceived as an antidote to hurried cosmetic routines and impersonal salons. We believe beauty is not about conformity, but about honoring your individuality through exceptional craftsmanship.
+            </p>
+            <p>
+              Every appointment begins with a genuine conversation. We take the time to understand your skin's immediate condition, your daily habits, and your personal aesthetic preferences. Through gentle techniques and pure botanical ingredients, we deliver results that look and feel effortless.
+            </p>
+            <div class="mt-6">
+              <a href="about.html" class="btn-ghost">
+                Discover Our Studio Story
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Core Services Preview Section -->
+    <section class="section" aria-label="Services Overview">
+      <div class="container">
+        <div class="flex justify-between items-center mb-8 reveal" style="flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <span class="eyebrow">Treatment Offerings</span>
+            <h2>Curated Service Disciplines</h2>
+          </div>
+          <a href="services.html" class="btn-ghost">
+            View Complete Catalog
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="grid-3">
+          <!-- Service Card 1: Facial Treatments -->
+          <article class="card reveal">
+            <div class="card-img-wrap">
+              <picture>
+                <source srcset="assets/images/facial-treatment.webp" type="image/webp">
+                <img src="assets/images/facial-treatment.jpg" alt="Aesthetician performing botanical facial massage" width="1200" height="896" loading="lazy">
+              </picture>
+            </div>
+            <div class="card-meta-row">
+              <span class="card-category-tag">Skincare</span>
+              <span class="duration-tag">60 – 75 min</span>
+            </div>
+            <h3 class="card-title">Facial Treatments</h3>
+            <p class="card-desc">
+              Custom cellular renewal, lymphatic sculpting, and peptide infusions that restore skin elasticity and natural luminosity.
+            </p>
+            <div class="card-footer">
+              <div class="card-price-block">
+                <span class="price-label">Sample Price</span>
+                <span class="price-value">from $145</span>
+              </div>
+              <a href="services.html#facials" class="btn-ghost" aria-label="Explore Facial Treatments">
+                Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Service Card 2: Hair Styling -->
+          <article class="card reveal">
+            <div class="card-img-wrap">
+              <picture>
+                <source srcset="assets/images/hair-styling.webp" type="image/webp">
+                <img src="assets/images/hair-styling.jpg" alt="Editorial hair cut and gentle wave styling" width="1200" height="896" loading="lazy">
+              </picture>
+            </div>
+            <div class="card-meta-row">
+              <span class="card-category-tag">Hair Artistry</span>
+              <span class="duration-tag">75 – 180 min</span>
+            </div>
+            <h3 class="card-title">Hair Styling &amp; Color</h3>
+            <p class="card-desc">
+              Precision haircuts, botanical balayage, and scalp steam rituals focused on strand health, organic movement, and effortless maintenance.
+            </p>
+            <div class="card-footer">
+              <div class="card-price-block">
+                <span class="price-label">Sample Price</span>
+                <span class="price-value">from $110</span>
+              </div>
+              <a href="services.html#hair" class="btn-ghost" aria-label="Explore Hair Styling">
+                Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Service Card 3: Manicure & Pedicure -->
+          <article class="card reveal">
+            <div class="card-img-wrap">
+              <picture>
+                <source srcset="assets/images/manicure-detail.webp" type="image/webp">
+                <img src="assets/images/manicure-detail.jpg" alt="Immaculate sheer manicure on natural nails" width="1200" height="896" loading="lazy">
+              </picture>
+            </div>
+            <div class="card-meta-row">
+              <span class="card-category-tag">Nails</span>
+              <span class="duration-tag">50 – 65 min</span>
+            </div>
+            <h3 class="card-title">Manicure &amp; Pedicure</h3>
+            <p class="card-desc">
+              Gentle dry cuticle care, diamond shaping, nourishing botanical baths, and non-toxic sheer lacquers for timeless elegance.
+            </p>
+            <div class="card-footer">
+              <div class="card-price-block">
+                <span class="price-label">Sample Price</span>
+                <span class="price-value">from $65</span>
+              </div>
+              <a href="services.html#nails" class="btn-ghost" aria-label="Explore Nail Services">
+                Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Service Card 4: Makeup Artistry -->
+          <article class="card reveal">
+            <div class="card-img-wrap">
+              <picture>
+                <source srcset="assets/images/makeup-artistry.webp" type="image/webp">
+                <img src="assets/images/makeup-artistry.jpg" alt="Professional makeup application with soft eye blending" width="1200" height="896" loading="lazy">
+              </picture>
+            </div>
+            <div class="card-meta-row">
+              <span class="card-category-tag">Makeup</span>
+              <span class="duration-tag">75 – 90 min</span>
+            </div>
+            <h3 class="card-title">Makeup Artistry</h3>
+            <p class="card-desc">
+              Haute couture evening and radiant bridal makeup tailored to your personal bone structure, lighting conditions, and wardrobe.
+            </p>
+            <div class="card-footer">
+              <div class="card-price-block">
+                <span class="price-label">Sample Price</span>
+                <span class="price-value">from $140</span>
+              </div>
+              <a href="services.html#makeup" class="btn-ghost" aria-label="Explore Makeup Artistry">
+                Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Service Card 5: Brows & Lashes -->
+          <article class="card reveal">
+            <div class="card-img-wrap">
+              <picture>
+                <source srcset="assets/images/brows-lashes.webp" type="image/webp">
+                <img src="assets/images/brows-lashes.jpg" alt="Naturally feathered eyebrows and defined lashes" width="1200" height="896" loading="lazy">
+              </picture>
+            </div>
+            <div class="card-meta-row">
+              <span class="card-category-tag">Framing</span>
+              <span class="duration-tag">45 – 60 min</span>
+            </div>
+            <h3 class="card-title">Brows &amp; Lashes</h3>
+            <p class="card-desc">
+              Architectural brow sculpting, hybrid tints, and keratin lash glaze treatments that subtly lift and define your gaze.
+            </p>
+            <div class="card-footer">
+              <div class="card-price-block">
+                <span class="price-label">Sample Price</span>
+                <span class="price-value">from $55</span>
+              </div>
+              <a href="services.html#brows" class="btn-ghost" aria-label="Explore Brows and Lashes">
+                Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Service Card 6: Beauty Rituals -->
+          <article class="card reveal">
+            <div class="card-img-wrap">
+              <picture>
+                <source srcset="assets/images/salon-interior.webp" type="image/webp">
+                <img src="assets/images/salon-interior.jpg" alt="Serene minimalist beauty studio suite" width="1376" height="768" loading="lazy">
+              </picture>
+            </div>
+            <div class="card-meta-row">
+              <span class="card-category-tag">Multi-Care</span>
+              <span class="duration-tag">90 – 180 min</span>
+            </div>
+            <h3 class="card-title">Signature Rituals</h3>
+            <p class="card-desc">
+              Holistic head-to-toe journeys combining facial therapy, scalp massage, and restorative manicure in private quiet suites.
+            </p>
+            <div class="card-footer">
+              <div class="card-price-block">
+                <span class="price-label">Sample Price</span>
+                <span class="price-value">from $195</span>
+              </div>
+              <a href="services.html#rituals" class="btn-ghost" aria-label="Explore Signature Rituals">
+                Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. The Atelier Experience (Editorial Walkthrough) -->
+    <section class="section section-soft" aria-label="The Client Experience">
+      <div class="container">
+        <div class="grid-split-40-60">
+          <div class="reveal">
+            <span class="eyebrow">The Atelier Standard</span>
+            <h2>What you can expect from every appointment.</h2>
+            <p class="mt-4" style="color: var(--color-text-secondary);">
+              We believe quality is measured in small, unhurried details. From your arrival to aftercare, every stage is carefully considered.
+            </p>
+            <div class="mt-8">
+              <a href="booking.html" class="btn btn-primary">
+                <span>Request Your Visit</span>
+                <span class="btn-icon-bubble" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+              </a>
+            </div>
+          </div>
+
+          <div class="experience-step-list reveal">
+            <div class="experience-step-item">
+              <div class="step-num">01</div>
+              <div class="step-content">
+                <h3>A Personal Consultation</h3>
+                <p>We begin with tea and a focused conversation about your skin, hair condition, daily routine, and personal goals before touching any tools.</p>
+              </div>
+            </div>
+
+            <div class="experience-step-item">
+              <div class="step-num">02</div>
+              <div class="step-content">
+                <h3>Considered Recommendations</h3>
+                <p>We suggest only the treatments and products genuinely beneficial to your skin barrier and hair health—never an excessive regimen.</p>
+              </div>
+            </div>
+
+            <div class="experience-step-item">
+              <div class="step-num">03</div>
+              <div class="step-content">
+                <h3>Technical Mastery &amp; Gentle Touch</h3>
+                <p>Each service is performed by an experienced practitioner with meticulous hygiene standards and deliberate, soothing rhythm.</p>
+              </div>
+            </div>
+
+            <div class="experience-step-item">
+              <div class="step-num">04</div>
+              <div class="step-content">
+                <h3>A Calm, Sensory Sanctuary</h3>
+                <p>Soft natural acoustics, subtle herbal aromas, and private styling nooks provide an environment free from salon chatter and clutter.</p>
+              </div>
+            </div>
+
+            <div class="experience-step-item">
+              <div class="step-num">05</div>
+              <div class="step-content">
+                <h3>Thoughtful Aftercare Guidance</h3>
+                <p>You leave with clear, simple steps to preserve and nourish your results at home, without complicated multi-step burdens.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Signature Experience Feature Package -->
+    <section class="section" aria-label="Signature Package Feature">
+      <div class="container">
+        <div class="double-bezel reveal">
+          <div class="double-bezel-inner" style="padding: clamp(2rem, 5vw, 4rem);">
+            <div class="grid-split-50-50">
+              <div>
+                <span class="eyebrow-pill">Premier Studio Ritual</span>
+                <h2>The Atelier Signature Ritual</h2>
+                <p class="lead mt-4">
+                  An immersive three-hour renewal experience harmonizing facial radiance, scalp therapy, and restorative nail artistry in a private suite.
+                </p>
+                <div style="margin: 1.5rem 0; display: flex; gap: 2rem; align-items: baseline;">
+                  <div>
+                    <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-taupe); display: block;">Duration</span>
+                    <strong style="font-size: 1.25rem; color: var(--color-espresso);">180 Minutes</strong>
+                  </div>
+                  <div>
+                    <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-taupe); display: block;">Sample Price</span>
+                    <strong style="font-size: 1.25rem; color: var(--color-espresso);">$320</strong>
+                  </div>
+                </div>
+                <p style="font-size: 0.88rem; color: var(--color-taupe); margin-bottom: 2rem;">
+                  *All sample prices are illustrative demonstration values subject to confirmation upon consultation.
+                </p>
+                <a href="booking.html?service=the-atelier-signature-ritual" class="btn btn-primary">
+                  <span>Request Signature Experience</span>
+                  <span class="btn-icon-bubble" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </span>
+                </a>
+              </div>
+
+              <div style="border-radius: var(--radius-lg); overflow: hidden; height: 100%; min-height: 280px; background-color: var(--color-porcelain);">
+                <picture>
+                  <source srcset="assets/images/salon-interior.webp" type="image/webp">
+                  <img src="assets/images/salon-interior.jpg" alt="Atelier Beauté private treatment suite" style="width: 100%; height: 100%; object-fit: cover;" width="1376" height="768" loading="lazy">
+                </picture>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Specialists Preview -->
+    <section class="section section-soft" aria-label="Our Specialists">
+      <div class="container">
+        <div class="flex justify-between items-center mb-8 reveal" style="flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <span class="eyebrow">Our Artisans</span>
+            <h2>Dedicated Hands, Refined Perspectives</h2>
+          </div>
+          <a href="specialists.html" class="btn-ghost">
+            Meet the Entire Team
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="grid-3">
+          <!-- Specialist 1 -->
+          <article class="specialist-card reveal">
+            <div class="specialist-portrait-wrap">
+              <picture>
+                <source srcset="assets/images/specialist-01.webp" type="image/webp">
+                <img src="assets/images/specialist-01.jpg" alt="Elena Rostova, Master Aesthetician" width="896" height="1200" loading="lazy">
+              </picture>
+            </div>
+            <span class="specialist-role-tag">Master Aesthetician &amp; Facialist</span>
+            <h3 class="specialist-name">Elena Rostova</h3>
+            <p class="specialist-bio">
+              Specializing in skin barrier restoration, micro-current lifting, and sculpting lymphatic massage for gentle, lasting rejuvenation.
+            </p>
+            <span class="specialist-fictional-note">Fictional demonstration profile</span>
+            <a href="booking.html?specialist=Elena%20Rostova" class="btn-ghost" aria-label="Book with Elena Rostova">
+              Request Appointment with Elena
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </article>
+
+          <!-- Specialist 2 -->
+          <article class="specialist-card reveal">
+            <div class="specialist-portrait-wrap">
+              <picture>
+                <source srcset="assets/images/specialist-02.webp" type="image/webp">
+                <img src="assets/images/specialist-02.jpg" alt="Marc Laurent, Creative Hair Director" width="896" height="1200" loading="lazy">
+              </picture>
+            </div>
+            <span class="specialist-role-tag">Creative Hair Director &amp; Colorist</span>
+            <h3 class="specialist-name">Marc Laurent</h3>
+            <p class="specialist-bio">
+              Focuses on tailored editorial cuts, low-maintenance dimensional balayage, and restorative scalp steam therapies.
+            </p>
+            <span class="specialist-fictional-note">Fictional demonstration profile</span>
+            <a href="booking.html?specialist=Marc%20Laurent" class="btn-ghost" aria-label="Book with Marc Laurent">
+              Request Appointment with Marc
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </article>
+
+          <!-- Specialist 3 -->
+          <article class="specialist-card reveal">
+            <div class="specialist-portrait-wrap">
+              <picture>
+                <source srcset="assets/images/specialist-03.webp" type="image/webp">
+                <img src="assets/images/specialist-03.jpg" alt="Camille Moreau, Senior Makeup Artist" width="896" height="1200" loading="lazy">
+              </picture>
+            </div>
+            <span class="specialist-role-tag">Senior Makeup Artist &amp; Brow Architect</span>
+            <h3 class="specialist-name">Camille Moreau</h3>
+            <p class="specialist-bio">
+              Renowned for understated evening beauty, dewy bridal complexions, and precision brow architecture that frames the face.
+            </p>
+            <span class="specialist-fictional-note">Fictional demonstration profile</span>
+            <a href="booking.html?specialist=Camille%20Moreau" class="btn-ghost" aria-label="Book with Camille Moreau">
+              Request Appointment with Camille
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Gallery Preview Section -->
+    <section class="section" aria-label="Visual Gallery Preview">
+      <div class="container">
+        <div class="flex justify-between items-center mb-8 reveal" style="flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <span class="eyebrow">Studio Portfolio</span>
+            <h2>Moments of Craft &amp; Stillness</h2>
+          </div>
+          <a href="gallery.html" class="btn-ghost">
+            Explore Full Gallery
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item reveal">
+            <picture>
+              <source srcset="assets/images/manicure-detail.webp" type="image/webp">
+              <img src="assets/images/manicure-detail.jpg" alt="Delicate sheer manicure on natural nails" width="1200" height="896" loading="lazy">
+            </picture>
+            <div class="gallery-item-overlay">
+              <span class="gallery-tag">Nails</span>
+              <span class="gallery-caption">Minimalist editorial manicure</span>
+            </div>
+          </div>
+
+          <div class="gallery-item reveal">
+            <picture>
+              <source srcset="assets/images/skincare-still-life.webp" type="image/webp">
+              <img src="assets/images/skincare-still-life.jpg" alt="Botanical skincare still life with amber dropper" width="1200" height="896" loading="lazy">
+            </picture>
+            <div class="gallery-item-overlay">
+              <span class="gallery-tag">Formulations</span>
+              <span class="gallery-caption">Organic botanical oils and balms</span>
+            </div>
+          </div>
+
+          <div class="gallery-item reveal">
+            <picture>
+              <source srcset="assets/images/brows-lashes.webp" type="image/webp">
+              <img src="assets/images/brows-lashes.jpg" alt="Naturally groomed eyebrows and defined lashes" width="1200" height="896" loading="lazy">
+            </picture>
+            <div class="gallery-item-overlay">
+              <span class="gallery-tag">Artistry</span>
+              <span class="gallery-caption">Feathered brow architecture</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Testimonials Section (Demonstration Content) -->
+    <section class="section section-soft" aria-label="Demonstration Testimonials">
+      <div class="container">
+        <div class="mb-8 reveal">
+          <span class="eyebrow">Client Reflections</span>
+          <h2>The experience in words.</h2>
+          <span class="demo-disclaimer-pill mt-2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            Demonstration Content — Fictional Reviews for Visual Layout
+          </span>
+        </div>
+
+        <div class="grid-3">
+          <div class="card reveal" style="padding: 2rem;">
+            <p style="font-family: var(--font-serif); font-size: 1.15rem; font-style: italic; color: var(--color-espresso); line-height: 1.45; margin-bottom: 1.25rem;">
+              &ldquo;The quiet calm of the studio is immediately grounding. Elena understood exactly what my sensitive barrier needed.&rdquo;
+            </p>
+            <div style="font-size: 0.85rem; color: var(--color-taupe);">
+              <strong>S. M.</strong> &mdash; Atelier Signature Facial
+            </div>
+          </div>
+
+          <div class="card reveal" style="padding: 2rem;">
+            <p style="font-family: var(--font-serif); font-size: 1.15rem; font-style: italic; color: var(--color-espresso); line-height: 1.45; margin-bottom: 1.25rem;">
+              &ldquo;Marc’s cut grows out so seamlessly. It’s the first time in years I haven’t struggled with daily styling.&rdquo;
+            </p>
+            <div style="font-size: 0.85rem; color: var(--color-taupe);">
+              <strong>L. K.</strong> &mdash; Editorial Cut &amp; Scalp Therapy
+            </div>
+          </div>
+
+          <div class="card reveal" style="padding: 2rem;">
+            <p style="font-family: var(--font-serif); font-size: 1.15rem; font-style: italic; color: var(--color-espresso); line-height: 1.45; margin-bottom: 1.25rem;">
+              &ldquo;Understated elegance at its finest. Camille created an evening look that still felt completely like me.&rdquo;
+            </p>
+            <div style="font-size: 0.85rem; color: var(--color-taupe);">
+              <strong>A. R.</strong> &mdash; Evening Makeup &amp; Brow Sculpt
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Final CTA Section -->
+    <section class="section section-charcoal" aria-label="Book Your Treatment">
+      <div class="container container-narrow text-center reveal" style="text-align: center;">
+        <span class="eyebrow-pill">Begin Your Ritual</span>
+        <h2 class="display-title" style="margin-bottom: 1.5rem;">
+          Make space for yourself.
+        </h2>
+        <p class="lead" style="margin-left: auto; margin-right: auto; max-width: 52ch; margin-bottom: 2.5rem;">
+          Discover a beauty experience designed around you. Explore our treatment catalog or request your personal consultation appointment today.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="services.html" class="btn" style="background-color: var(--color-ivory); color: var(--color-espresso);">
+            Find Your Treatment
+          </a>
+          <a href="booking.html" class="btn btn-secondary" style="border-color: rgba(247, 243, 237, 0.3); color: var(--color-ivory);">
+            Request an Appointment
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="brand-name">ATELIER BEAUTÉ</span>
+          <span class="brand-descriptor">BEAUTY • CARE • RITUAL</span>
+          <p class="footer-mission">
+            A contemporary beauty studio combining expert technical craft, organic botanical formulations, and a calm luxury experience.
+          </p>
+          <div class="mt-4">
+            <span class="fictional-entity-tag">Fictional Sample Salon</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services &amp; Pricing</a></li>
+            <li><a href="specialists.html">Specialists</a></li>
+            <li><a href="about.html">Our Studio</a></li>
+            <li><a href="gallery.html">Visual Gallery</a></li>
+            <li><a href="booking.html">Appointment Request</a></li>
+            <li><a href="contact.html">Contact &amp; Studio</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Services</h4>
+          <ul class="footer-links-list">
+            <li><a href="services.html#facials">Facial Treatments</a></li>
+            <li><a href="services.html#hair">Hair Styling &amp; Color</a></li>
+            <li><a href="services.html#nails">Manicure &amp; Pedicure</a></li>
+            <li><a href="services.html#makeup">Makeup Artistry</a></li>
+            <li><a href="services.html#brows">Brows &amp; Lashes</a></li>
+            <li><a href="services.html#rituals">Signature Rituals</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Studio Information</h4>
+          <div class="footer-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>[Studio Address Placeholder]<br>42 Boulevard des Beaux-Arts</span>
+          </div>
+          <div class="footer-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>[Phone Placeholder] +1 (555) 019-2834</span>
+          </div>
+          <div class="footer-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Tue &ndash; Fri: 09:30 &ndash; 19:30<br>Sat: 09:00 &ndash; 18:00<br>Sun &amp; Mon: By Private Request</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 ATELIER BEAUTÉ. All rights reserved. Demonstration Website.
+        </div>
+        <div class="footer-legal-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Use</a>
+          <a href="404.html">404 Error Page</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating AI Beauty Concierge Widget -->
+  <aside class="ai-concierge-widget" aria-label="AI Concierge Assistant">
+    <div class="ai-chat-window" aria-hidden="true">
+      <div class="ai-chat-header">
+        <div class="ai-header-info">
+          <div class="ai-avatar" aria-hidden="true">AB</div>
+          <div>
+            <div class="ai-header-title">Atelier AI Concierge</div>
+            <div class="ai-header-subtitle">Beauty &amp; Treatment Guide</div>
+          </div>
+        </div>
+        <button class="ai-chat-close-btn modal-close-btn" aria-label="Close AI Concierge Window" style="position: static;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="ai-chat-disclaimer">
+        <span>Simulated Demo Mode • No API key required</span>
+        <span style="font-size: 0.65rem; color: var(--color-taupe);">Offline Safe</span>
+      </div>
+
+      <div class="ai-chat-messages" role="log" aria-live="polite">
+        <div class="chat-msg bot">
+          <div class="msg-bubble">
+            <div style="font-weight: 600; margin-bottom: 4px; font-family: var(--font-serif);">Welcome to ATELIER BEAUTÉ</div>
+            <p style="margin: 0; font-size: 0.86rem; line-height: 1.45;">
+              I'm your AI concierge. I can help you explore our beauty services, understand appointment options, and find the right place to start. What would you like to discover?
+            </p>
+          </div>
+          <span class="msg-time">Just now</span>
+        </div>
+      </div>
+
+      <div class="ai-prompts-row" aria-label="Quick prompts">
+        <button class="ai-prompt-chip" data-prompt="Explore facial treatments">Explore facials</button>
+        <button class="ai-prompt-chip" data-prompt="Explore hair styling">Hair styling</button>
+        <button class="ai-prompt-chip" data-prompt="Find a manicure service">Manicure &amp; nails</button>
+        <button class="ai-prompt-chip" data-prompt="How do appointment requests work?">How to book</button>
+        <button class="ai-prompt-chip" data-prompt="Ask about preparing for my visit">Visit preparation</button>
+        <button class="ai-prompt-chip" data-prompt="Who are the specialists?">Specialists</button>
+      </div>
+
+      <form class="ai-chat-input-form" aria-label="Chat with AI Concierge">
+        <input type="text" class="ai-chat-input" placeholder="Ask about treatments, pricing, or rituals…" aria-label="Type your beauty question" autocomplete="off" spellcheck="false">
+        <button type="submit" class="ai-chat-send-btn" aria-label="Send question">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </form>
+    </div>
+
+    <button class="ai-launcher-btn" aria-expanded="false" aria-label="Open Atelier AI Concierge">
+      <span class="ai-launcher-icon-bubble" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </span>
+      <span class="ai-launcher-label">AI Concierge</span>
+    </button>
+  </aside>
+
+  <!-- Back to top button -->
+  <button class="back-to-top" aria-label="Back to top of page">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Core Scripts -->
+  <script src="scripts/services.js"></script>
+  <script src="scripts/navigation.js"></script>
+  <script src="scripts/ai-concierge.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+</html>

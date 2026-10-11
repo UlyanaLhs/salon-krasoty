@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointment Request — ATELIER BEAUTÉ</title>
+  <meta name="description" content="Submit your personalized appointment request for facials, hair styling, manicure artistry, or signature beauty rituals at Atelier Beauté.">
+  <meta name="keywords" content="book beauty appointment, salon reservation, appointment request, facial booking, hair appointment">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Appointment Request — ATELIER BEAUTÉ">
+  <meta property="og:description" content="Submit an appointment request for personalized care at Atelier Beauté.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/hero-beauty-editorial.webp">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/responsive.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container header-container">
+      <a href="index.html" class="brand-link" aria-label="Atelier Beauté Home">
+        <span class="brand-name">ATELIER BEAUTÉ</span>
+        <span class="brand-descriptor">BEAUTY • CARE • RITUAL</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Primary Navigation">
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="specialists.html" class="nav-link">Specialists</a>
+        <a href="about.html" class="nav-link">Our Studio</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="booking.html" class="btn btn-primary active" aria-current="page">
+          <span>Book an Appointment</span>
+          <span class="btn-icon-bubble" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="mobile-nav-drawer" aria-label="Toggle navigation menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-nav-drawer" class="mobile-drawer" aria-hidden="true">
+    <nav aria-label="Mobile Navigation">
+      <ul class="mobile-nav-list">
+        <li><a href="services.html" class="mobile-nav-link">Services</a></li>
+        <li><a href="specialists.html" class="mobile-nav-link">Specialists</a></li>
+        <li><a href="about.html" class="mobile-nav-link">Our Studio</a></li>
+        <li><a href="gallery.html" class="mobile-nav-link">Gallery</a></li>
+        <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+        <li><a href="booking.html" class="mobile-nav-link active">Book an Appointment</a></li>
+      </ul>
+    </nav>
+    <div class="mobile-drawer-footer">
+      <span class="demo-disclaimer-pill">Demonstration Project</span>
+      <p style="font-size: 0.8rem; color: var(--color-taupe);">Tuesday – Saturday, by appointment</p>
+    </div>
+  </div>
+
+  <main id="main-content">
+    
+    <!-- Hero / Title -->
+    <section class="section" style="padding-bottom: 2rem;" aria-label="Booking Introduction">
+      <div class="container container-narrow text-center" style="text-align: center;">
+        <span class="eyebrow-pill">Reservations &amp; Care</span>
+        <h1 class="display-title" style="margin-bottom: 1.25rem;">
+          Request an Appointment
+        </h1>
+        <p class="lead" style="margin: 0 auto 1.5rem auto; max-width: 58ch;">
+          Tell us about your treatment preferences and schedule. Our studio concierge will contact you to confirm timing and specialist availability.
+        </p>
+
+        <!-- Critical Demonstration Notice -->
+        <div class="demo-banner" style="text-align: left; max-width: 680px; margin-left: auto; margin-right: auto;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <div>
+            <strong>Appointment Request Demonstration:</strong>
+            <p style="margin: 0.25rem 0 0 0; font-size: 0.82rem; line-height: 1.5;">
+              This form functions as an interactive client-side demo. In a live production deployment, submissions are connected to your scheduling API (e.g. Acuity, Fresha, Calendly) or a secure form backend. Web submissions represent appointment requests, not instant confirmed reservations.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Appointment Request Form -->
+    <section class="section" style="padding-top: 1rem;" aria-label="Booking Form Container">
+      <div class="container container-narrow">
+        <div class="double-bezel">
+          <div class="double-bezel-inner" style="padding: clamp(2rem, 5vw, 3.5rem);">
+            
+            <form id="bookingForm" novalidate aria-label="Appointment Request Form">
+              
+              <!-- 1. Client Identity -->
+              <h2 style="font-size: 1.4rem; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--color-border-subtle);">
+                1. Your Information
+              </h2>
+
+              <div class="grid-2" style="margin-bottom: 1.5rem;">
+                <div class="form-group">
+                  <label for="clientName" class="form-label">Full Name <span class="required" aria-hidden="true">*</span></label>
+                  <input type="text" id="clientName" name="name" class="form-control" placeholder="e.g. Claire Laurent" required autocomplete="name">
+                  <span class="form-error">Please enter your full name.</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="clientEmail" class="form-label">Email Address <span class="required" aria-hidden="true">*</span></label>
+                  <input type="email" id="clientEmail" name="email" class="form-control" placeholder="e.g. claire@example.com" required autocomplete="email" spellcheck="false">
+                  <span class="form-error">Please enter a valid email address.</span>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-bottom: 2rem;">
+                <label for="clientPhone" class="form-label">Telephone Number <span style="color: var(--color-taupe); font-weight: normal;">(Optional for SMS reminders)</span></label>
+                <input type="tel" id="clientPhone" name="phone" class="form-control" placeholder="+1 (555) 000-0000" autocomplete="tel">
+              </div>
+
+              <!-- 2. Treatment Selection -->
+              <h2 style="font-size: 1.4rem; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--color-border-subtle);">
+                2. Treatment Preferences
+              </h2>
+
+              <div class="grid-2" style="margin-bottom: 1.5rem;">
+                <div class="form-group">
+                  <label for="serviceCategory" class="form-label">Treatment Category</label>
+                  <select id="serviceCategory" class="form-control">
+                    <option value="all">All Service Categories</option>
+                    <option value="facials">Facial Treatments</option>
+                    <option value="hair">Hair Styling &amp; Color</option>
+                    <option value="nails">Manicure &amp; Pedicure</option>
+                    <option value="makeup">Makeup Artistry</option>
+                    <option value="brows">Brows &amp; Lashes</option>
+                    <option value="rituals">Signature Rituals</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="specificService" class="form-label">Specific Treatment <span class="required" aria-hidden="true">*</span></label>
+                  <select id="specificService" class="form-control" required>
+                    <option value="">Select a specific treatment…</option>
+                  </select>
+                  <span class="form-error">Please select a treatment for your visit.</span>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-bottom: 2rem;">
+                <label for="preferredSpecialist" class="form-label">Preferred Specialist <span style="color: var(--color-taupe); font-weight: normal;">(Optional)</span></label>
+                <select id="preferredSpecialist" class="form-control">
+                  <option value="">First Available Specialist (Recommended)</option>
+                  <option value="Elena Rostova">Elena Rostova — Master Aesthetician</option>
+                  <option value="Marc Laurent">Marc Laurent — Creative Hair Director</option>
+                  <option value="Camille Moreau">Camille Moreau — Senior Makeup Artist</option>
+                </select>
+                <span class="form-hint">All specialist assignments are subject to individual schedule confirmation.</span>
+              </div>
+
+              <!-- 3. Scheduling Preferences -->
+              <h2 style="font-size: 1.4rem; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--color-border-subtle);">
+                3. Date &amp; Timing
+              </h2>
+
+              <div class="grid-2" style="margin-bottom: 1.5rem;">
+                <div class="form-group">
+                  <label for="preferredDate" class="form-label">Preferred Date <span class="required" aria-hidden="true">*</span></label>
+                  <input type="date" id="preferredDate" name="preferredDate" class="form-control" required>
+                  <span class="form-error">Please select an upcoming date (past dates not permitted).</span>
+                  <span class="form-hint">Tuesday through Saturday appointments.</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="preferredTime" class="form-label">Preferred Time Window <span class="required" aria-hidden="true">*</span></label>
+                  <select id="preferredTime" class="form-control" required>
+                    <option value="Morning (09:30 – 12:30)">Morning Window (09:30 – 12:30)</option>
+                    <option value="Afternoon (12:30 – 16:30)">Afternoon Window (12:30 – 16:30)</option>
+                    <option value="Late Afternoon (16:30 – 19:30)">Late Afternoon Window (16:30 – 19:30)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-bottom: 2rem;">
+                <label for="clientNotes" class="form-label">Notes, Skin Concerns, or Inquiries <span style="color: var(--color-taupe); font-weight: normal;">(Optional)</span></label>
+                <textarea id="clientNotes" name="notes" class="form-control" placeholder="Share any relevant details: allergies, recent treatments, upcoming special events, or questions…"></textarea>
+              </div>
+
+              <!-- 4. Privacy & Consent -->
+              <div class="checkbox-group">
+                <input type="checkbox" id="privacyConsent" class="checkbox-input" required>
+                <label for="privacyConsent" class="checkbox-label">
+                  I understand that this submission is an appointment request and not an instant confirmation. I have reviewed and agree to the <a href="privacy.html" target="_blank">Privacy Policy</a> and <a href="terms.html" target="_blank">Terms of Use</a>. <span class="required" aria-hidden="true">*</span>
+                </label>
+              </div>
+              <div class="form-group" style="margin-top: -1rem; margin-bottom: 1.5rem;">
+                <span class="form-error">You must acknowledge the terms to submit your request.</span>
+              </div>
+
+              <!-- Submit Button -->
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <button type="submit" class="btn btn-primary" style="padding: 0.85rem 2rem;">
+                  <span>Submit Appointment Request</span>
+                  <span class="btn-icon-bubble" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </span>
+                </button>
+                <span style="font-size: 0.78rem; color: var(--color-taupe);">
+                  No payment required today.
+                </span>
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Consultation Guidance Section -->
+    <section class="section section-soft" aria-label="Appointment FAQs">
+      <div class="container container-narrow">
+        <div class="text-center mb-8">
+          <span class="eyebrow">Appointment Information</span>
+          <h2>Frequently Asked Questions</h2>
+        </div>
+
+        <div class="accordion-group">
+          <div class="accordion-item open">
+            <button class="accordion-trigger" aria-expanded="true">
+              <span>What happens after I submit this request?</span>
+              <span class="accordion-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-panel">
+              <div class="accordion-body">
+                <p>Our studio reception team reviews your chosen service and specialist schedule within 4 business hours. We then send a formal confirmation email or SMS with your reserved arrival time and arrival guidance.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              <span>What is your cancellation and rescheduling policy?</span>
+              <span class="accordion-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-panel">
+              <div class="accordion-body">
+                <p>We kindly request at least 24 hours advance notice for any rescheduling or cancellations so that we may offer the appointment time to clients on our waiting list. Full terms are outlined in our Terms of Use.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              <span>When do I pay for my treatment?</span>
+              <span class="accordion-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-panel">
+              <div class="accordion-body">
+                <p>Payment is handled upon completion of your visit at the salon reception counter. We accept all major credit cards and contactless payments. No prepayment is collected during web requests.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Demonstration Booking Success Modal -->
+  <div id="bookingSuccessModal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <button id="closeBookingModalBtn" class="modal-close-btn" aria-label="Close Confirmation Modal">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+        <div style="width: 38px; height: 38px; border-radius: var(--radius-pill); background-color: var(--color-rose-subtle); display: flex; align-items: center; justify-content: center; color: var(--color-espresso);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div>
+          <span class="eyebrow" style="margin: 0;">Request Recorded</span>
+          <h3 id="modalTitle" style="font-size: 1.35rem; margin: 0;">Appointment Request Summary</h3>
+        </div>
+      </div>
+
+      <div id="bookingModalSummary" style="margin-bottom: 1.5rem; background-color: var(--color-ivory); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--color-border-subtle);">
+        <!-- Summary rendered safely via booking.js -->
+      </div>
+
+      <div class="demo-banner" style="margin-bottom: 1.5rem;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        <div style="font-size: 0.8rem; line-height: 1.45;">
+          <strong>Demo Notice:</strong> No live reservation was transmitted to external servers because this website runs without an active backend. To connect live scheduling, integrate Acuity, Calendly, or your custom booking API endpoint in <code>scripts/booking.js</code>.
+        </div>
+      </div>
+
+      <button onclick="document.getElementById('bookingSuccessModal').classList.remove('open');" class="btn btn-primary" style="width: 100%;">
+        Acknowledge &amp; Return
+      </button>
+    </div>
+  </div>
+
+  <!-- Global Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="brand-name">ATELIER BEAUTÉ</span>
+          <span class="brand-descriptor">BEAUTY • CARE • RITUAL</span>
+          <p class="footer-mission">
+            A contemporary beauty studio combining expert technical craft, organic botanical formulations, and a calm luxury experience.
+          </p>
+          <div class="mt-4">
+            <span class="fictional-entity-tag">Fictional Sample Salon</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services &amp; Pricing</a></li>
+            <li><a href="specialists.html">Specialists</a></li>
+            <li><a href="about.html">Our Studio</a></li>
+            <li><a href="gallery.html">Visual Gallery</a></li>
+            <li><a href="booking.html">Appointment Request</a></li>
+            <li><a href="contact.html">Contact &amp; Studio</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Services</h4>
+          <ul class="footer-links-list">
+            <li><a href="services.html#facials">Facial Treatments</a></li>
+            <li><a href="services.html#hair">Hair Styling &amp; Color</a></li>
+            <li><a href="services.html#nails">Manicure &amp; Pedicure</a></li>
+            <li><a href="services.html#makeup">Makeup Artistry</a></li>
+            <li><a href="services.html#brows">Brows &amp; Lashes</a></li>
+            <li><a href="services.html#rituals">Signature Rituals</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Studio Information</h4>
+          <div class="footer-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>[Studio Address Placeholder]<br>42 Boulevard des Beaux-Arts</span>
+          </div>
+          <div class="footer-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>[Phone Placeholder] +1 (555) 019-2834</span>
+          </div>
+          <div class="footer-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Tue &ndash; Fri: 09:30 &ndash; 19:30<br>Sat: 09:00 &ndash; 18:00<br>Sun &amp; Mon: By Private Request</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 ATELIER BEAUTÉ. All rights reserved. Demonstration Website.
+        </div>
+        <div class="footer-legal-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Use</a>
+          <a href="404.html">404 Error Page</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AI Concierge Widget -->
+  <aside class="ai-concierge-widget" aria-label="AI Concierge Assistant">
+    <div class="ai-chat-window" aria-hidden="true">
+      <div class="ai-chat-header">
+        <div class="ai-header-info">
+          <div class="ai-avatar" aria-hidden="true">AB</div>
+          <div>
+            <div class="ai-header-title">Atelier AI Concierge</div>
+            <div class="ai-header-subtitle">Beauty &amp; Treatment Guide</div>
+          </div>
+        </div>
+        <button class="ai-chat-close-btn modal-close-btn" aria-label="Close AI Concierge Window" style="position: static;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="ai-chat-disclaimer">
+        <span>Simulated Demo Mode • No API key required</span>
+        <span style="font-size: 0.65rem; color: var(--color-taupe);">Offline Safe</span>
+      </div>
+
+      <div class="ai-chat-messages" role="log" aria-live="polite">
+        <div class="chat-msg bot">
+          <div class="msg-bubble">
+            <div style="font-weight: 600; margin-bottom: 4px; font-family: var(--font-serif);">Booking Assistance</div>
+            <p style="margin: 0; font-size: 0.86rem; line-height: 1.45;">
+              Need help selecting a treatment or finding the right time slot? Ask me any questions about our appointment requests!
+            </p>
+          </div>
+          <span class="msg-time">Just now</span>
+        </div>
+      </div>
+
+      <div class="ai-prompts-row" aria-label="Quick prompts">
+        <button class="ai-prompt-chip" data-prompt="How do appointment requests work?">How to book</button>
+        <button class="ai-prompt-chip" data-prompt="Can I reschedule or cancel?">Cancellation policy</button>
+        <button class="ai-prompt-chip" data-prompt="Which treatment is best for a first visit?">First-time visit</button>
+      </div>
+
+      <form class="ai-chat-input-form" aria-label="Chat with AI Concierge">
+        <input type="text" class="ai-chat-input" placeholder="Ask about booking or appointments…" aria-label="Type your question" autocomplete="off" spellcheck="false">
+        <button type="submit" class="ai-chat-send-btn" aria-label="Send question">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </form>
+    </div>
+
+    <button class="ai-launcher-btn" aria-expanded="false" aria-label="Open Atelier AI Concierge">
+      <span class="ai-launcher-icon-bubble" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </span>
+      <span class="ai-launcher-label">AI Concierge</span>
+    </button>
+  </aside>
+
+  <!-- Back to top button -->
+  <button class="back-to-top" aria-label="Back to top of page">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Scripts -->
+  <script src="scripts/services.js"></script>
+  <script src="scripts/navigation.js"></script>
+  <script src="scripts/booking.js"></script>
+  <script src="scripts/forms.js"></script>
+  <script src="scripts/ai-concierge.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+</html>

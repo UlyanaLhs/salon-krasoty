@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Treatment Details — ATELIER BEAUTÉ</title>
+  <meta name="description" content="Detailed service protocol, preparation advice, aftercare guidance, and illustrative pricing for treatments at Atelier Beauté.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Treatment Details — ATELIER BEAUTÉ">
+  <meta property="og:description" content="Explore protocol details, preparation guidance, and aftercare recommendations for our signature treatments.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="assets/images/facial-treatment.webp">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/responsive.css">
+
+  <style>
+    .service-hero {
+      padding-top: clamp(2.5rem, 5vw, 4rem);
+      padding-bottom: clamp(2.5rem, 5vw, 4rem);
+      border-bottom: 1px solid var(--color-border-subtle);
+    }
+    .service-meta-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+      margin-top: 1.5rem;
+      margin-bottom: 2rem;
+      padding: 1rem 1.25rem;
+      background-color: var(--color-surface-white);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border-subtle);
+      width: fit-content;
+    }
+    .protocol-step-box {
+      background-color: var(--color-surface-white);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-xl);
+      padding: clamp(1.75rem, 4vw, 3rem);
+      margin-bottom: var(--space-8);
+    }
+    .guidance-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-6);
+      margin-bottom: var(--space-8);
+    }
+    @media (max-width: 768px) {
+      .guidance-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .guidance-card {
+      background-color: var(--color-surface-white);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+    }
+    .guidance-card h4 {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--color-espresso);
+    }
+    .guidance-card h4 svg {
+      width: 18px;
+      height: 18px;
+      color: var(--color-taupe);
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Global Header -->
+  <header class="site-header" role="banner">
+    <div class="container header-container">
+      <a href="index.html" class="brand-link" aria-label="Atelier Beauté Home">
+        <span class="brand-name">ATELIER BEAUTÉ</span>
+        <span class="brand-descriptor">BEAUTY • CARE • RITUAL</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Primary Navigation">
+        <a href="services.html" class="nav-link active">Services</a>
+        <a href="specialists.html" class="nav-link">Specialists</a>
+        <a href="about.html" class="nav-link">Our Studio</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="booking.html" class="btn btn-primary">
+          <span>Book an Appointment</span>
+          <span class="btn-icon-bubble" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="mobile-nav-drawer" aria-label="Toggle navigation menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-nav-drawer" class="mobile-drawer" aria-hidden="true">
+    <nav aria-label="Mobile Navigation">
+      <ul class="mobile-nav-list">
+        <li><a href="services.html" class="mobile-nav-link active">Services</a></li>
+        <li><a href="specialists.html" class="mobile-nav-link">Specialists</a></li>
+        <li><a href="about.html" class="mobile-nav-link">Our Studio</a></li>
+        <li><a href="gallery.html" class="mobile-nav-link">Gallery</a></li>
+        <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+        <li><a href="booking.html" class="mobile-nav-link">Book an Appointment</a></li>
+      </ul>
+    </nav>
+    <div class="mobile-drawer-footer">
+      <span class="demo-disclaimer-pill">Demonstration Project</span>
+      <p style="font-size: 0.8rem; color: var(--color-taupe);">Tuesday – Saturday, by appointment</p>
+    </div>
+  </div>
+
+  <main id="main-content">
+    
+    <!-- Fallback / Error State Container (shown when service is invalid) -->
+    <div id="serviceNotFound" class="section container text-center" style="display: none; padding: 6rem 1rem; text-align: center;">
+      <span class="eyebrow-pill">Treatment Not Found</span>
+      <h1 class="display-title" style="margin-bottom: 1rem;">Service Not Found</h1>
+      <p class="lead" style="max-width: 50ch; margin: 0 auto 2rem auto;">
+        We could not locate the specific treatment you requested. Please explore our complete offerings in the catalog.
+      </p>
+      <a href="services.html" class="btn btn-primary">
+        Return to Service Catalog
+      </a>
+    </div>
+
+    <!-- Active Service Content -->
+    <div id="serviceContent">
+      <!-- Breadcrumb Bar -->
+      <div style="background-color: var(--color-porcelain); padding: 0.75rem 0; border-bottom: 1px solid var(--color-border-subtle); font-size: 0.82rem;">
+        <div class="container" style="display: flex; gap: 0.5rem; align-items: center; color: var(--color-taupe);">
+          <a href="index.html" style="color: var(--color-espresso);">Home</a>
+          <span>/</span>
+          <a href="services.html" style="color: var(--color-espresso);">Services</a>
+          <span>/</span>
+          <span id="breadcrumbCategory" style="color: var(--color-espresso);">Category</span>
+          <span>/</span>
+          <span id="breadcrumbCurrent" style="color: var(--color-text-secondary); font-weight: 500;">Treatment</span>
+        </div>
+      </div>
+
+      <!-- Hero Header for Service -->
+      <section class="service-hero" aria-label="Service Overview">
+        <div class="container">
+          <div class="grid-split-60-40">
+            <div>
+              <span id="detailCategoryTag" class="eyebrow-pill">Category</span>
+              <h1 id="detailTitle" class="display-title" style="margin-bottom: 1rem;">
+                Treatment Title
+              </h1>
+              <p id="detailOverview" class="lead" style="margin-bottom: 1.5rem; max-width: 60ch;">
+                Treatment overview text describing philosophy and intention.
+              </p>
+
+              <!-- Meta Row -->
+              <div class="service-meta-badge-row">
+                <div>
+                  <span style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-taupe); display: block;">Session Duration</span>
+                  <strong id="detailDuration" style="font-size: 1.15rem; color: var(--color-espresso);">75 min</strong>
+                </div>
+                <div style="width: 1px; height: 32px; background-color: var(--color-border-subtle);"></div>
+                <div>
+                  <span style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-taupe); display: block;">Sample Price</span>
+                  <strong id="detailPrice" style="font-size: 1.15rem; color: var(--color-espresso); font-variant-numeric: tabular-nums;">$175</strong>
+                </div>
+                <div style="width: 1px; height: 32px; background-color: var(--color-border-subtle);"></div>
+                <div>
+                  <span style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-taupe); display: block;">Status</span>
+                  <span class="demo-disclaimer-pill">Illustrative</span>
+                </div>
+              </div>
+
+              <!-- Booking CTA -->
+              <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                <a id="detailBookBtn" href="booking.html" class="btn btn-primary">
+                  <span>Request an Appointment</span>
+                  <span class="btn-icon-bubble" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </span>
+                </a>
+                <a href="services.html" class="btn-ghost">
+                  Back to All Services
+                </a>
+              </div>
+            </div>
+
+            <!-- Hero Image Box -->
+            <div style="border-radius: var(--radius-xl); overflow: hidden; background-color: var(--color-porcelain); aspect-ratio: 4/3; border: 1px solid var(--color-border-subtle); box-shadow: var(--shadow-card);">
+              <img id="detailHeroImg" src="assets/images/facial-treatment.webp" alt="Treatment image" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Protocol & Step Details -->
+      <section class="section" aria-label="Treatment Protocol and Guidance">
+        <div class="container container-narrow">
+          
+          <div class="protocol-step-box">
+            <span class="eyebrow">The Experience</span>
+            <h2 style="font-size: 1.75rem; margin-bottom: 1.5rem;">What this treatment involves:</h2>
+            <ul id="detailInvolvesList" style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
+              <!-- Involves steps injected via JS safely -->
+            </ul>
+          </div>
+
+          <!-- Preparation & Aftercare Cards -->
+          <div class="guidance-grid">
+            <div class="guidance-card">
+              <h4>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Preparation Guidance
+              </h4>
+              <p id="detailPrep" style="font-size: 0.92rem; line-height: 1.55; color: var(--color-text-secondary);">
+                Guidelines on how to prepare before arriving.
+              </p>
+            </div>
+
+            <div class="guidance-card">
+              <h4>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Aftercare Recommendations
+              </h4>
+              <p id="detailAftercare" style="font-size: 0.92rem; line-height: 1.55; color: var(--color-text-secondary);">
+                Post-treatment recommendations for maintaining radiance and barrier strength.
+              </p>
+            </div>
+          </div>
+
+          <!-- Health & Caution Disclaimer -->
+          <div class="demo-banner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <div>
+              <strong>Aesthetic Wellness Notice:</strong>
+              <p style="margin: 0.25rem 0 0 0; font-size: 0.8rem; line-height: 1.45;">
+                All services offered by Atelier Beauté are cosmetic wellness treatments intended for relaxation, skin barrier nourishment, and personal grooming. We do not provide dermatological diagnosis or medical therapies. If you have active medical conditions, please consult your physician.
+              </p>
+            </div>
+          </div>
+
+          <!-- Frequently Asked Questions for this treatment -->
+          <div style="margin-top: 3.5rem;">
+            <span class="eyebrow">Common Inquiries</span>
+            <h2 style="font-size: 1.75rem; margin-bottom: 1.5rem;">Frequently Asked Questions</h2>
+            <div id="detailFaqGroup" class="accordion-group">
+              <!-- FAQs rendered safely -->
+            </div>
+          </div>
+
+          <!-- Bottom Booking Action Block -->
+          <div style="margin-top: 4rem; text-align: center; padding: 3rem 1.5rem; background-color: var(--color-porcelain); border-radius: var(--radius-xl); border: 1px solid var(--color-border-subtle);">
+            <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem;">Ready to experience this treatment?</h3>
+            <p style="color: var(--color-text-secondary); max-width: 48ch; margin: 0 auto 1.5rem auto;">
+              Submit your appointment request online. Our concierge will review timing and ensure your specialist prepares your custom formulation.
+            </p>
+            <a id="detailBottomBookBtn" href="booking.html" class="btn btn-primary">
+              <span>Request Appointment Now</span>
+              <span class="btn-icon-bubble" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Related Services Section -->
+      <section class="section section-soft" aria-label="Complementary Services">
+        <div class="container">
+          <div class="mb-8">
+            <span class="eyebrow">Complementary Care</span>
+            <h2>You May Also Appreciate</h2>
+          </div>
+          <div id="relatedServicesGrid" class="grid-3">
+            <!-- Injected by JavaScript -->
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="brand-name">ATELIER BEAUTÉ</span>
+          <span class="brand-descriptor">BEAUTY • CARE • RITUAL</span>
+          <p class="footer-mission">
+            A contemporary beauty studio combining expert technical craft, organic botanical formulations, and a calm luxury experience.
+          </p>
+          <div class="mt-4">
+            <span class="fictional-entity-tag">Fictional Sample Salon</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services &amp; Pricing</a></li>
+            <li><a href="specialists.html">Specialists</a></li>
+            <li><a href="about.html">Our Studio</a></li>
+            <li><a href="gallery.html">Visual Gallery</a></li>
+            <li><a href="booking.html">Appointment Request</a></li>
+            <li><a href="contact.html">Contact &amp; Studio</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Services</h4>
+          <ul class="footer-links-list">
+            <li><a href="services.html#facials">Facial Treatments</a></li>
+            <li><a href="services.html#hair">Hair Styling &amp; Color</a></li>
+            <li><a href="services.html#nails">Manicure &amp; Pedicure</a></li>
+            <li><a href="services.html#makeup">Makeup Artistry</a></li>
+            <li><a href="services.html#brows">Brows &amp; Lashes</a></li>
+            <li><a href="services.html#rituals">Signature Rituals</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Studio Information</h4>
+          <div class="footer-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>[Studio Address Placeholder]<br>42 Boulevard des Beaux-Arts</span>
+          </div>
+          <div class="footer-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>[Phone Placeholder] +1 (555) 019-2834</span>
+          </div>
+          <div class="footer-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Tue &ndash; Fri: 09:30 &ndash; 19:30<br>Sat: 09:00 &ndash; 18:00<br>Sun &amp; Mon: By Private Request</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 ATELIER BEAUTÉ. All rights reserved. Demonstration Website.
+        </div>
+        <div class="footer-legal-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Use</a>
+          <a href="404.html">404 Error Page</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AI Concierge Widget -->
+  <aside class="ai-concierge-widget" aria-label="AI Concierge Assistant">
+    <div class="ai-chat-window" aria-hidden="true">
+      <div class="ai-chat-header">
+        <div class="ai-header-info">
+          <div class="ai-avatar" aria-hidden="true">AB</div>
+          <div>
+            <div class="ai-header-title">Atelier AI Concierge</div>
+            <div class="ai-header-subtitle">Beauty &amp; Treatment Guide</div>
+          </div>
+        </div>
+        <button class="ai-chat-close-btn modal-close-btn" aria-label="Close AI Concierge Window" style="position: static;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="ai-chat-disclaimer">
+        <span>Simulated Demo Mode • No API key required</span>
+        <span style="font-size: 0.65rem; color: var(--color-taupe);">Offline Safe</span>
+      </div>
+
+      <div class="ai-chat-messages" role="log" aria-live="polite">
+        <div class="chat-msg bot">
+          <div class="msg-bubble">
+            <div style="font-weight: 600; margin-bottom: 4px; font-family: var(--font-serif);">Treatment Consultation</div>
+            <p style="margin: 0; font-size: 0.86rem; line-height: 1.45;">
+              Have questions about this treatment protocol, preparation, or aftercare? Ask me anything below.
+            </p>
+          </div>
+          <span class="msg-time">Just now</span>
+        </div>
+      </div>
+
+      <div class="ai-prompts-row" aria-label="Quick prompts">
+        <button class="ai-prompt-chip" data-prompt="What should I know before my visit?">Before my visit</button>
+        <button class="ai-prompt-chip" data-prompt="How long do results last?">Results longevity</button>
+        <button class="ai-prompt-chip" data-prompt="How do I book this treatment?">How to book</button>
+      </div>
+
+      <form class="ai-chat-input-form" aria-label="Chat with AI Concierge">
+        <input type="text" class="ai-chat-input" placeholder="Ask about treatments, pricing, or rituals…" aria-label="Type your beauty question" autocomplete="off" spellcheck="false">
+        <button type="submit" class="ai-chat-send-btn" aria-label="Send question">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </form>
+    </div>
+
+    <button class="ai-launcher-btn" aria-expanded="false" aria-label="Open Atelier AI Concierge">
+      <span class="ai-launcher-icon-bubble" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </span>
+      <span class="ai-launcher-label">AI Concierge</span>
+    </button>
+  </aside>
+
+  <!-- Back to top button -->
+  <button class="back-to-top" aria-label="Back to top of page">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Scripts -->
+  <script src="scripts/services.js"></script>
+  <script src="scripts/navigation.js"></script>
+  <script src="scripts/forms.js"></script>
+  <script src="scripts/ai-concierge.js"></script>
+  <script src="scripts/main.js"></script>
+
+  <!-- Dynamic Detail View Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!window.AtelierServices) return;
+
+      const urlParams = new URLSearchParams(window.location.search);
+      let serviceId = urlParams.get('service') || urlParams.get('id');
+
+      // Default fallback to first service if not specified
+      if (!serviceId) {
+        serviceId = 'signature-cellular-facial';
+      }
+
+      const service = window.AtelierServices.getById(serviceId);
+      const contentEl = document.getElementById('serviceContent');
+      const notFoundEl = document.getElementById('serviceNotFound');
+
+      if (!service) {
+        if (contentEl) contentEl.style.display = 'none';
+        if (notFoundEl) notFoundEl.style.display = 'block';
+        return;
+      }
+
+      // Populate Headings & Meta
+      document.title = `${service.name} — ATELIER BEAUTÉ`;
+      document.getElementById('breadcrumbCategory').textContent = service.category;
+      document.getElementById('breadcrumbCurrent').textContent = service.name;
+      document.getElementById('detailCategoryTag').textContent = service.category;
+      document.getElementById('detailTitle').textContent = service.name;
+      document.getElementById('detailOverview').textContent = service.overview;
+      document.getElementById('detailDuration').textContent = service.duration;
+      document.getElementById('detailPrice').textContent = service.priceSample;
+
+      // Hero Image
+      const heroImg = document.getElementById('detailHeroImg');
+      if (heroImg) {
+        heroImg.src = service.image;
+        heroImg.alt = service.name;
+      }
+
+      // Booking buttons pre-fill URL
+      const bookBtn = document.getElementById('detailBookBtn');
+      const bottomBookBtn = document.getElementById('detailBottomBookBtn');
+      const bookingUrl = `booking.html?service=${service.id}`;
+      if (bookBtn) bookBtn.href = bookingUrl;
+      if (bottomBookBtn) bottomBookBtn.href = bookingUrl;
+
+      // Involves Steps
+      const involvesList = document.getElementById('detailInvolvesList');
+      if (involvesList && service.involves) {
+        involvesList.innerHTML = '';
+        service.involves.forEach((step, idx) => {
+          const li = document.createElement('li');
+          li.style.display = 'flex';
+          li.style.gap = '1rem';
+          li.style.alignItems = 'flex-start';
+          li.innerHTML = `
+            <span style="font-family: var(--font-serif); font-size: 1.15rem; font-style: italic; color: var(--color-taupe); flex-shrink: 0; width: 24px;">${idx + 1}.</span>
+            <span style="font-size: 0.95rem; line-height: 1.55; color: var(--color-text-secondary);">${escapeHtml(step)}</span>
+          `;
+          involvesList.appendChild(li);
+        });
+      }
+
+      // Prep & Aftercare
+      document.getElementById('detailPrep').textContent = service.preparation || 'No specific advance preparation required.';
+      document.getElementById('detailAftercare').textContent = service.aftercare || 'Keep the area hydrated and avoid direct sun exposure.';
+
+      // FAQs Accordion
+      const faqGroup = document.getElementById('detailFaqGroup');
+      if (faqGroup && service.faqs) {
+        faqGroup.innerHTML = '';
+        service.faqs.forEach((faq, index) => {
+          const item = document.createElement('div');
+          item.className = 'accordion-item' + (index === 0 ? ' open' : '');
+
+          item.innerHTML = `
+            <button class="accordion-trigger" aria-expanded="${index === 0 ? 'true' : 'false'}">
+              <span>${escapeHtml(faq.q)}</span>
+              <span class="accordion-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="accordion-panel">
+              <div class="accordion-body">
+                <p>${escapeHtml(faq.a)}</p>
+              </div>
+            </div>
+          `;
+          faqGroup.appendChild(item);
+        });
+
+        // Initialize accordion triggers for new elements
+        initAccordions();
+      }
+
+      // Related Services (pick 3 from other services)
+      const relatedGrid = document.getElementById('relatedServicesGrid');
+      if (relatedGrid) {
+        relatedGrid.innerHTML = '';
+        const others = window.AtelierServices.getAll().filter(s => s.id !== service.id).slice(0, 3);
+        others.forEach(rel => {
+          const card = document.createElement('article');
+          card.className = 'card';
+          card.innerHTML = `
+            <div class="card-img-wrap">
+              <img src="${rel.image}" alt="${escapeHtml(rel.name)}" width="1200" height="896" loading="lazy">
+            </div>
+            <div class="card-meta-row">
+              <span class="card-category-tag">${escapeHtml(rel.category)}</span>
+              <span class="duration-tag">${escapeHtml(rel.duration)}</span>
+            </div>
+            <h3 class="card-title" style="font-size: 1.2rem;">${escapeHtml(rel.name)}</h3>
+            <p class="card-desc" style="font-size: 0.88rem;">${escapeHtml(rel.shortDesc)}</p>
+            <div class="card-footer">
+              <span class="price-value" style="font-size: 1rem;">${escapeHtml(rel.priceSample)}</span>
+              <a href="service-details.html?service=${rel.id}" class="btn-ghost" aria-label="Explore ${escapeHtml(rel.name)}">
+                View Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          `;
+          relatedGrid.appendChild(card);
+        });
+      }
+    });
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str.replace(/[&<>"']/g, function(m) {
+        return {
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#039;'
+        }[m];
+      });
+    }
+  </script>
+</body>
+</html>
